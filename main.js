@@ -117,11 +117,11 @@ function S1E4(){
 }
 
 function S1E5(){
-	if (episodeGuess.value == 'Dammed If You Do') {
+	if (episodeGuess.value == 'Damned If You Do') {
 		wrongOrRight.textContent = 'Right';
 		wrongOrRight.style.color = 'green';
-	} else if (episodeGuess.Value !== 'Dammed If You Do'){
-		wrongOrRight.textContent = 'wrong - Dammed If You Do';
+	} else if (episodeGuess.Value !== 'Damned If You Do'){
+		wrongOrRight.textContent = 'wrong - Damned If You Do';
 		wrongOrRight.style.color = 'red';
 	}
 }
