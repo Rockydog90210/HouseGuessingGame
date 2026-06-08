@@ -24,6 +24,7 @@ function tryAgain() {
 	episodeIndex.textContent = episodeX;
 	wrongOrRight.textContent = '';
 	document.getElementById('housePNG').src = "houseNet.png";
+	episodeGuess.value = '';
 	
 }
 
