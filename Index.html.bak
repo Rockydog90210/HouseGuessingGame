@@ -11,12 +11,12 @@
 	<body>
 		<div class="main" style="margin-top:1px;">
 			<div class="row">	
-				<div class="col-4 col-md-2">
-					<img id="housePNG" src="houseNet.png" style="width:350px; padding-left:1px;">
+				<div class="col-12 col-md-4">
+					<img id="housePNG" src="houseNet.png" style="padding-left:1px; width:50%;">
 				
 				</div>
 			
-				<div ="col-4 col-md-6" style="width:50%;">
+				<div ="col-12 col-md-5" style="">
 					<h1> House Guessing Game </h1>
 						<!--Episode-->
 					<p id="episodeTitle">Place Holder</p>
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				
-				<div class="col-4 col-md-4">
+				<div class="col-12 col-md-3">
 					<div>
 						
 						<h1>	Game Tips </h1>
@@ -47,7 +47,7 @@
 							<li> Awnsers must use proper punctuation ex: <u>One Day, One Room</u> or <u>Whac-A-Mole</u> </li>
 							<li> English characters only. ex: <u>Que Sera Sera</u> not <u>Que Será Será</u> </li>
 							<li> Hit the 'Submit Guess' button to guess, hitting 'enter' doesn't do anything, i'm working on adding this as a feature</li>
-							<li> Feel free to reach out if you liked to see any additons </li>
+							
 
 						</ul>
 						
