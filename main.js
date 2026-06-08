@@ -1218,12 +1218,12 @@ function S4E15(){
 }
 
 function S4E16(){
-	if (episodeGuess.value == "Wilson's Head") {
+	if (episodeGuess.value == "Wilson's Heart") {
 		wrongOrRight.textContent = 'Right';
 		wrongOrRight.style.color = 'green';
 		document.getElementById('housePNG').src = "houseHappy.png";
-	} else if (episodeGuess.Value !== "Wilson's Head"){
-		wrongOrRight.textContent = "wrong - Wilson's Head";
+	} else if (episodeGuess.Value !== "Wilson's Heart"){
+		wrongOrRight.textContent = "wrong - Wilson's Heart";
 		wrongOrRight.style.color = 'red';
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
