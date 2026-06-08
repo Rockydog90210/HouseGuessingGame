@@ -29,7 +29,7 @@
 					</div>
 					
 					<div class="inLine">
-						<p id="wrongOrRight" style="font-weight:bold;" > </p> 
+						<p id="wrongOrRight"></p> 
 						<button id="playAgain"> Play again? </Button>
 					</div>
 				</div>
