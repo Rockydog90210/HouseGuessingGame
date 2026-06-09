@@ -11,30 +11,32 @@
 	<body>
 		<div class="main" style="margin-top:1px;">
 			<div class="row">	
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-lg-4">
 					<img id="housePNG" src="houseNet.png" style="padding-left:1px; width:60%;">
 				
 				</div>
 			
-				<div ="col-12 col-md-5" style="">
-					<h1> House Guessing Game </h1>
-						<!--Episode-->
-					<p id="episodeTitle">Place Holder</p>
-					
-					<div class="inLine">
-						<label for="episodeGuess" Episode Guess:> </label>
-						<input id="episodeGuess" type="text" placeholder="">
+				<div class="col-12 col-lg-5" style="">
+					<div style="">
+						<h1> House Guessing Game </h1>
+							<!--Episode-->
+						<p id="episodeTitle">Place Holder</p>
 						
-						<button id="submitGuess"> Submit Guess </button>
-					</div>
-					
-					<div class="inLine">
-						<p id="wrongOrRight" style="font-weight:bold;" > </p> 
-						<button id="playAgain"> Play again? </Button>
+						<div class="inLine">
+							<label for="episodeGuess" Episode Guess:> </label>
+							<input id="episodeGuess" type="text" placeholder="">
+							
+							<button id="submitGuess"> Submit Guess </button>
+						</div>
+						
+						<div class="inLine">
+							<p id="wrongOrRight" style="font-weight:bold;" > </p> 
+							<button id="playAgain"> Play again? </Button>
+						</div>
 					</div>
 				</div>
 				
-				<div class="col-12 col-md-3">
+				<div class="col-12 col-lg-3">
 					<div>
 						
 						<h1>	Game Tips </h1>
