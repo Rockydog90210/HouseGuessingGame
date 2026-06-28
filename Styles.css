@@ -1,6 +1,6 @@
 body{
-	background-color:#b1d3e2;
-	
+	background-color:#89a9b7;
+	overflow-x: hidden;
 }
 .main {
 	text-align:center;
@@ -10,13 +10,42 @@ body{
 }
 #episodeTitle{
 	font-size:25px;
-	
 }
 #wrongOrRight{
 	font-Size:17px;
+	font-weight:bold;
 }
 
 .list {
 	font-size: 19px;
-	
+	text-align:left;
+	padding-bottom:20%;
+}
+#episodePNG{
+	border: solid black 5px;
+	margin-bottom: 5px;
+}
+#housePNG{
+	padding-left:1px;
+	width:100%;
+}
+
+.centerPlease{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+.footer{
+	background-color:#89a9b7;
+	width:100%;
+}
+.guessDiv {
+	background-color:#b1d3e2;
+	width:100vh;
+	padding-bottom:5%;
+	margin:auto;
+}
+.sideDiv{
+	background-color:#9ec2d3;
 }
