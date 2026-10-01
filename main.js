@@ -50,6 +50,7 @@ function check () {
 		alreadyGuess = true;
 	}else if (alreadyGuess == true){
 		tryAgain();
+	    alreadyGuess = false;
 	}
 }
 function check2() {
