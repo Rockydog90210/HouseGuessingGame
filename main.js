@@ -46,7 +46,8 @@ function tryAgain() {
 }
 function check () {
 	if (alreadyGuess == False){
-		check2()
+		check2();
+		alreadyGuess = True;
 	}else if (alreadyGuess == True){
 		tryAgain();
 	}
