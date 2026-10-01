@@ -10,6 +10,7 @@ Percent = document.getElementById('Percent')
 
 var totCorrect = 0;
 var totWrong = 0;
+alreadyGuess == False;
 
 window.addEventListener('load',tryAgain);
 
@@ -43,7 +44,14 @@ function tryAgain() {
 	episodeGuess.value = '';
 	
 }
-function check() {
+function check () {
+	if (alreadyGuess == False){
+		check2()
+	}else if (alreadyGuess == True){
+		tryAgain();
+	}
+}
+function check2() {
 	
 	if (episodeX == 'Season 1 Episode 1') {
 		S1E1();
