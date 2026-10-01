@@ -10,7 +10,7 @@ Percent = document.getElementById('Percent')
 
 var totCorrect = 0;
 var totWrong = 0;
-let alreadyGuess = False;
+let alreadyGuess = false;
 
 window.addEventListener('load',tryAgain);
 
@@ -45,10 +45,10 @@ function tryAgain() {
 	
 }
 function check () {
-	if (alreadyGuess == False){
+	if (alreadyGuess == false){
 		check2();
-		alreadyGuess = True;
-	}else if (alreadyGuess == True){
+		alreadyGuess = true;
+	}else if (alreadyGuess == true){
 		tryAgain();
 	}
 }
