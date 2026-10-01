@@ -10,7 +10,7 @@ Percent = document.getElementById('Percent')
 
 var totCorrect = 0;
 var totWrong = 0;
-var alreadyGuess = False;
+let alreadyGuess = False;
 
 window.addEventListener('load',tryAgain);
 
