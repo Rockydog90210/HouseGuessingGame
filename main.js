@@ -42,7 +42,7 @@ function tryAgain() {
 	wrongOrRight.textContent = '';
 	document.getElementById('housePNG').src = "houseNet.png";
 	episodeGuess.value = '';
-	
+	alreadyguess = false;
 }
 function check () {
 	if (alreadyGuess == false){
