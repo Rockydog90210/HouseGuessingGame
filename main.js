@@ -10,7 +10,7 @@ Percent = document.getElementById('Percent')
 
 var totCorrect = 0;
 var totWrong = 0;
-let alreadyGuess = false;
+let alreadyGussed = false
 
 window.addEventListener('load',tryAgain);
 
@@ -31,7 +31,7 @@ function updateStat(){
 	
 }
 
-episodes = ['Season 1 Episode 1', 'Season 1 Episode 2','Season 1 Episode 3','Season 1 Episode 4','Season 1 Episode 5','Season 1 Episode 6','Season 1 Episode 7','Season 1 Episode 8','Season 1 Episode 9','Season 1 Episode 10','Season 1 Episode 11', 'Season 1 Episode 12', 'Season 1 Episode 13','Season 1 Episode 14','Season 1 Episode 15','Season 1 Episode 16','Season 1 Episode 17','Season 1 Episode 18', 'Season 1 Episode 19', 'Season 1 Episode 20','Season 1 Episode 21','Season 2 Episode 1', 'Season 2 Episode 2', 'Season 2 Episode 3', 'Season 2 Episode 4', 'Season 2 Episode 5', 'Season 2 Episode 6', 'Season 2 Episode 7', 'Season 2 Episode 8', 'Season 2 Episode 9', 'Season 2 Episode 10', 'Season 2 Episode 11', 'Season 2 Episode 12', 'Season 2 Episode 13', 'Season 2 Episode 14', 'Season 2 Episode 15', 'Season 2 Episode 16', 'Season 2 Episode 17', 'Season 2 Episode 18', 'Season 2 Episode 19', 'Season 2 Episode 20', 'Season 2 Episode 21', 'Season 2 Episode 21', 'Season 2 Episode 22', 'Season 2 Episode 23', 'Season 2 Episode 23', 'Season 2 Episode 24', 'Season 3 Episode 1', 'Season 3 Episode 2', 'Season 3 Episode 3', 'Season 3 Episode 4', 'Season 3 Episode 5', 'Season 3 Episode 6', 'Season 3 Episode 7', 'Season 3 Episode 8', 'Season 3 Episode 9', 'Season 3 Episode 10', 'Season 3 Episode 11', 'Season 3 Episode 12', 'Season 3 Episode 13', 'Season 3 Episode 14', 'Season 3 Episode 15', 'Season 3 Episode 16', 'Season 3 Episode 17', 'Season 3 Episode 18', 'Season 3 Episode 19', 'Season 3 Episode 20', 'Season 3 Episode 21', 'Season 3 Episode 22', 'Season 3 Episode 23', 'Season 3 Episode 24', 'Season 4 Episode 1', 'Season 4 Episode 2', 'Season 4 Episode 3', 'Season 4 Episode 4', 'Season 4 Episode 5', 'Season 4 Episode 6', 'Season 4 Episode 7', 'Season 4 Episode 8', 'Season 4 Episode 9', 'Season 4 Episode 10', 'Season 4 Episode 11', 'Season 4 Episode 12', 'Season 4 Episode 13', 'Season 4 Episode 14', 'Season 4 Episode 15', 'Season 4 Episode 16', 'Season 5 Episode 1', 'Season 5 Episode 2', 'Season 5 Episode 3', 'Season 5 Episode 4','Season 5 Episode 5','Season 5 Episode 6','Season 5 Episode 7','Season 5 Episode 8','Season 5 Episode 9','Season 5 Episode 10','Season 5 Episode 11','Season 5 Episode 12','Season 5 Episode 13','Season 5 Episode 14','Season 5 Episode 15','Season 5 Episode 16','Season 5 Episode 17','Season 5 Episode 18','Season 5 Episode 19','Season 5 Episode 20','Season 5 Episode 21','Season 5 Episode 22','Season 5 Episode 23','Season 5 Episode 24',]
+episodes = ['Season 1 Episode 1', 'Season 1 Episode 2','Season 1 Episode 3','Season 1 Episode 4','Season 1 Episode 5','Season 1 Episode 6','Season 1 Episode 7','Season 1 Episode 8','Season 1 Episode 9','Season 1 Episode 10','Season 1 Episode 11', 'Season 1 Episode 12', 'Season 1 Episode 13','Season 1 Episode 14','Season 1 Episode 15','Season 1 Episode 16','Season 1 Episode 17','Season 1 Episode 18', 'Season 1 Episode 19', 'Season 1 Episode 20','Season 1 Episode 21','Season 2 Episode 1', 'Season 2 Episode 2', 'Season 2 Episode 3', 'Season 2 Episode 4', 'Season 2 Episode 5', 'Season 2 Episode 6', 'Season 2 Episode 7', 'Season 2 Episode 8', 'Season 2 Episode 9', 'Season 2 Episode 10', 'Season 2 Episode 11', 'Season 2 Episode 12', 'Season 2 Episode 13', 'Season 2 Episode 14', 'Season 2 Episode 15', 'Season 2 Episode 16', 'Season 2 Episode 17', 'Season 2 Episode 18', 'Season 2 Episode 19', 'Season 2 Episode 20', 'Season 2 Episode 21', 'Season 2 Episode 21', 'Season 2 Episode 22', 'Season 2 Episode 23', 'Season 2 Episode 23', 'Season 2 Episode 24', 'Season 3 Episode 1', 'Season 3 Episode 2', 'Season 3 Episode 3', 'Season 3 Episode 4', 'Season 3 Episode 5', 'Season 3 Episode 6', 'Season 3 Episode 7', 'Season 3 Episode 8', 'Season 3 Episode 9', 'Season 3 Episode 10', 'Season 3 Episode 11', 'Season 3 Episode 12', 'Season 3 Episode 13', 'Season 3 Episode 14', 'Season 3 Episode 15', 'Season 3 Episode 16', 'Season 3 Episode 17', 'Season 3 Episode 18', 'Season 3 Episode 19', 'Season 3 Episode 20', 'Season 3 Episode 21', 'Season 3 Episode 22', 'Season 3 Episode 23', 'Season 3 Episode 24', 'Season 4 Episode 1', 'Season 4 Episode 2', 'Season 4 Episode 3', 'Season 4 Episode 4', 'Season 4 Episode 5', 'Season 4 Episode 6', 'Season 4 Episode 7', 'Season 4 Episode 8', 'Season 4 Episode 9', 'Season 4 Episode 10', 'Season 4 Episode 11', 'Season 4 Episode 12', 'Season 4 Episode 13', 'Season 4 Episode 14', 'Season 4 Episode 15', 'Season 4 Episode 16', 'Season 5 Episode 1', 'Season 5 Episode 2', 'Season 5 Episode 3', 'Season 5 Episode 4','Season 5 Episode 5','Season 5 Episode 6','Season 5 Episode 7','Season 5 Episode 8','Season 5 Episode 9','Season 5 Episode 10','Season 5 Episode 11','Season 5 Episode 12','Season 5 Episode 13','Season 5 Episode 14','Season 5 Episode 15','Season 5 Episode 16','Season 5 Episode 17','Season 5 Episode 18','Season 5 Episode 19','Season 5 Episode 20','Season 5 Episode 21','Season 5 Episode 22','Season 5 Episode 23','Season 5 Episode 24','Season 6 Episode 1','Season 6 Episode 2','Season 6 Episode 3','Season 6 Episode 4','Season 6 Episode 5','Season 6 Episode 6','Season 6 Episode 7','Season 6 Episode 8','Season 6 Episode 9','Season 6 Episode 10','Season 6 Episode 11','Season 6 Episode 12','Season 6 Episode 13','Season 6 Episode 14','Season 6 Episode 15','Season 6 Episode 16','Season 6 Episode 17','Season 6 Episode 18','Season 6 Episode 19','Season 6 Episode 20','Season 6 Episode 21','Season 7 Episode 1',]
 
 placeGuess.addEventListener('click',check);
 playAgain.addEventListener('click',tryAgain);
@@ -42,15 +42,16 @@ function tryAgain() {
 	wrongOrRight.textContent = '';
 	document.getElementById('housePNG').src = "houseNet.png";
 	episodeGuess.value = '';
-	alreadyguess = false;
+	alreadyGussed = false;
+	
 }
-function check () {
-	if (alreadyGuess == false){
+function check(){
+	if (alreadyGussed == false) {
 		check2();
-		alreadyGuess = true;
-	}else if (alreadyGuess == true){
+		alreadyGussed = true;
+	} else if (alreadyGussed == true){
 		tryAgain();
-	    alreadyGuess = false;
+		alreadyGussed = false;
 	}
 }
 function check2() {
@@ -273,7 +274,52 @@ function check2() {
 		S5E23();
 	}else if (episodeX =='Season 5 Episode 24') {
 		S5E24();
+	}else if (episodeX =='Season 6 Episode 1') {
+		S6E1();
+	}else if (episodeX =='Season 6 Episode 2') {
+		S6E2();
+	}else if (episodeX =='Season 6 Episode 3') {
+		S6E3();
+	}else if (episodeX =='Season 6 Episode 4') {
+		S6E4();
+	}else if (episodeX =='Season 6 Episode 5') {
+		S6E5();
+	}else if (episodeX =='Season 6 Episode 6') {
+		S6E6();
+	}else if (episodeX =='Season 6 Episode 7') {
+		S6E7();
+	}else if (episodeX =='Season 6 Episode 8') {
+		S6E8();
+	}else if (episodeX =='Season 6 Episode 9') {
+		S6E9();
+	}else if (episodeX =='Season 6 Episode 10') {
+		S6E10();
+	}else if (episodeX =='Season 6 Episode 11') {
+		S6E11();
+	}else if (episodeX =='Season 6 Episode 12') {
+		S6E12();
+	}else if (episodeX =='Season 6 Episode 13') {
+		S6E13();
+	}else if (episodeX =='Season 6 Episode 14') {
+		S6E14();
+	}else if (episodeX =='Season 6 Episode 15') {
+		S6E15();
+	}else if (episodeX =='Season 6 Episode 16') {
+		S6E16();
+	}else if (episodeX =='Season 6 Episode 17') {
+		S6E17();
+	}else if (episodeX =='Season 6 Episode 18') {
+		S6E18();
+	}else if (episodeX =='Season 6 Episode 19') {
+		S6E19();
+	}else if (episodeX =='Season 6 Episode 20') {
+		S6E20();
+	}else if (episodeX =='Season 6 Episode 21') {
+		S6E21();
+	}else if (episodeX =='Season 7 Episode 1') {
+		S7E1();
 	}
+	
 
 
 
@@ -1714,6 +1760,292 @@ function S5E24(){
 		++totCorrect;
 	} else if (episodeGuess.Value !== 'Both Sides Now'){
 		wrongOrRight.textContent = 'wrong - Both Sides Now';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E1() {
+	if (episodeGuess.value == 'Broken') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Broken'){
+		wrongOrRight.textContent = 'wrong - Broken';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E2() {
+	if (episodeGuess.value == 'Epic Fail') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Epic Fail'){
+		wrongOrRight.textContent = 'wrong - Epic Fail';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E3() {
+	if (episodeGuess.value == 'The Tyrant') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'The Tyrant'){
+		wrongOrRight.textContent = 'wrong - The Tyrant';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E4() {
+	if (episodeGuess.value == 'Instant Karma') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Instant Karma'){
+		wrongOrRight.textContent = 'wrong - Instant Karma';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E5() {
+	if (episodeGuess.value == 'Brave Heart') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Brave Heart'){
+		wrongOrRight.textContent = 'wrong - Brave Heart';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E6() {
+	if (episodeGuess.value == 'Known Unknowns') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Known Unknowns'){
+		wrongOrRight.textContent = 'wrong - Known Unknowns';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E7() {
+	if (episodeGuess.value == 'Teamwork') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Teamwork'){
+		wrongOrRight.textContent = 'wrong - Teamwork';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E8() {
+	if (episodeGuess.value == 'Ignorance Is Bliss') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Ignorance Is Bliss'){
+		wrongOrRight.textContent = 'wrong - Ignorance Is Bliss';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E9() {
+	if (episodeGuess.value == 'Wilson') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Wilson'){
+		wrongOrRight.textContent = 'wrong - Wilson';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E10() {
+	if (episodeGuess.value == 'The Down Low') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'The Down Low'){
+		wrongOrRight.textContent = 'wrong - The Down Low';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E11() {
+	if (episodeGuess.value == 'Remorse') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Remorse'){
+		wrongOrRight.textContent = 'wrong - Remorse';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E12() {
+	if (episodeGuess.value == 'Moving the Chains') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Moving the Chains'){
+		wrongOrRight.textContent = 'wrong - Moving the Chains';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E13() {
+	if (episodeGuess.value == '5 to 9') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== '5 to 9'){
+		wrongOrRight.textContent = 'wrong - 5 to 9';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E14() {
+	if (episodeGuess.value == 'Private Lives') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Private Lives'){
+		wrongOrRight.textContent = 'wrong - Private Lives';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E15() {
+	if (episodeGuess.value == 'Black Hole') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Black Hole'){
+		wrongOrRight.textContent = 'wrong - Black Hole';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E16() {
+	if (episodeGuess.value == 'Lockdown') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Lockdown'){
+		wrongOrRight.textContent = 'wrong - Lockdown';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E17() {
+	if (episodeGuess.value == 'Knight Fall') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Knight Fall'){
+		wrongOrRight.textContent = 'wrong - Knight Fall';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E18() {
+	if (episodeGuess.value == 'Open and Shut') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Open and Shut'){
+		wrongOrRight.textContent = 'wrong - Open and Shut';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E19() {
+	if (episodeGuess.value == 'The Choice') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'The Choice'){
+		wrongOrRight.textContent = 'wrong - The Choice';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E20() {
+	if (episodeGuess.value == 'Baggage') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Baggage'){
+		wrongOrRight.textContent = 'wrong - Baggage';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S6E21() {
+	if (episodeGuess.value == 'Help Me') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Help Me'){
+		wrongOrRight.textContent = 'wrong - Help Me';
+		wrongOrRight.style.color = 'red';
+		document.getElementById('housePNG').src = "houseSad.png";
+	}
+	updateStat();
+}
+function S7E1() {
+	if (episodeGuess.value == 'Now What?') {
+		wrongOrRight.textContent = 'Right';
+		wrongOrRight.style.color = 'green';
+		document.getElementById('housePNG').src = "houseHappy.png";
+		++totCorrect;
+	} else if (episodeGuess.Value !== 'Now What?'){
+		wrongOrRight.textContent = 'wrong - Now What?';
 		wrongOrRight.style.color = 'red';
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
