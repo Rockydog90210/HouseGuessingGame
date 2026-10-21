@@ -3,6 +3,7 @@ episodeIndex = document.getElementById('episodeTitle') //placeholder where title
 const episodeGuess = document.getElementById('episodeGuess') //imput
 wrongOrRight = document.getElementById('wrongOrRight')
 playAgain = document.getElementById('playAgain')
+noRepeatFun = document.getElementById('noRepeatButtion')
 
 Correct = document.getElementById('Right')
 Incorrect = document.getElementById('Wrong')
@@ -11,8 +12,10 @@ Percent = document.getElementById('Percent')
 var totCorrect = 0;
 var totWrong = 0;
 let alreadyGussed = false
+let noRepeatButt = false
 
 window.addEventListener('load',tryAgain);
+noRepeatFun.addEventListener('click',toggleRepeat);
 
 episodeGuess.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -23,6 +26,16 @@ function randomValueFromArray(array){
 	const random = Math.floor(Math.random()*array.length);
 	return array[random];
 }
+
+function toggleRepeat(){
+	if (noRepeatButt == false) {
+		noRepeatButt = true;
+		document.getElementById("noRepeatButtion").style.backgroundColor = '#c6c5c2';
+	}else if (noRepeatButt == true){
+		noRepeatButt = false;
+		document.getElementById("noRepeatButtion").style.backgroundColor = "white";
+	}
+}
 function updateStat(){
 	++totWrong;
 	Correct.textContent = totCorrect;
@@ -31,7 +44,7 @@ function updateStat(){
 	
 }
 
-episodes = ['Season 1 Episode 1', 'Season 1 Episode 2','Season 1 Episode 3','Season 1 Episode 4','Season 1 Episode 5','Season 1 Episode 6','Season 1 Episode 7','Season 1 Episode 8','Season 1 Episode 9','Season 1 Episode 10','Season 1 Episode 11', 'Season 1 Episode 12', 'Season 1 Episode 13','Season 1 Episode 14','Season 1 Episode 15','Season 1 Episode 16','Season 1 Episode 17','Season 1 Episode 18', 'Season 1 Episode 19', 'Season 1 Episode 20','Season 1 Episode 21','Season 2 Episode 1', 'Season 2 Episode 2', 'Season 2 Episode 3', 'Season 2 Episode 4', 'Season 2 Episode 5', 'Season 2 Episode 6', 'Season 2 Episode 7', 'Season 2 Episode 8', 'Season 2 Episode 9', 'Season 2 Episode 10', 'Season 2 Episode 11', 'Season 2 Episode 12', 'Season 2 Episode 13', 'Season 2 Episode 14', 'Season 2 Episode 15', 'Season 2 Episode 16', 'Season 2 Episode 17', 'Season 2 Episode 18', 'Season 2 Episode 19', 'Season 2 Episode 20', 'Season 2 Episode 21', 'Season 2 Episode 21', 'Season 2 Episode 22', 'Season 2 Episode 23', 'Season 2 Episode 23', 'Season 2 Episode 24', 'Season 3 Episode 1', 'Season 3 Episode 2', 'Season 3 Episode 3', 'Season 3 Episode 4', 'Season 3 Episode 5', 'Season 3 Episode 6', 'Season 3 Episode 7', 'Season 3 Episode 8', 'Season 3 Episode 9', 'Season 3 Episode 10', 'Season 3 Episode 11', 'Season 3 Episode 12', 'Season 3 Episode 13', 'Season 3 Episode 14', 'Season 3 Episode 15', 'Season 3 Episode 16', 'Season 3 Episode 17', 'Season 3 Episode 18', 'Season 3 Episode 19', 'Season 3 Episode 20', 'Season 3 Episode 21', 'Season 3 Episode 22', 'Season 3 Episode 23', 'Season 3 Episode 24', 'Season 4 Episode 1', 'Season 4 Episode 2', 'Season 4 Episode 3', 'Season 4 Episode 4', 'Season 4 Episode 5', 'Season 4 Episode 6', 'Season 4 Episode 7', 'Season 4 Episode 8', 'Season 4 Episode 9', 'Season 4 Episode 10', 'Season 4 Episode 11', 'Season 4 Episode 12', 'Season 4 Episode 13', 'Season 4 Episode 14', 'Season 4 Episode 15', 'Season 4 Episode 16', 'Season 5 Episode 1', 'Season 5 Episode 2', 'Season 5 Episode 3', 'Season 5 Episode 4','Season 5 Episode 5','Season 5 Episode 6','Season 5 Episode 7','Season 5 Episode 8','Season 5 Episode 9','Season 5 Episode 10','Season 5 Episode 11','Season 5 Episode 12','Season 5 Episode 13','Season 5 Episode 14','Season 5 Episode 15','Season 5 Episode 16','Season 5 Episode 17','Season 5 Episode 18','Season 5 Episode 19','Season 5 Episode 20','Season 5 Episode 21','Season 5 Episode 22','Season 5 Episode 23','Season 5 Episode 24','Season 6 Episode 1,''Season 6 Episode 2','Season 6 Episode 3','Season 6 Episode 4','Season 6 Episode 5','Season 6 Episode 6','Season 6 Episode 7','Season 6 Episode 8','Season 6 Episode 9','Season 6 Episode 10','Season 6 Episode 11','Season 6 Episode 12','Season 6 Episode 13','Season 6 Episode 14','Season 6 Episode 15','Season 6 Episode 16','Season 6 Episode 17','Season 6 Episode 18','Season 6 Episode 19','Season 6 Episode 20','Season 6 Episode 21','Season 7 Episode 1']
+episodes = ['Season 1 Episode 1', 'Season 1 Episode 2','Season 1 Episode 3','Season 1 Episode 4','Season 1 Episode 5','Season 1 Episode 6','Season 1 Episode 7','Season 1 Episode 8','Season 1 Episode 9','Season 1 Episode 10','Season 1 Episode 11', 'Season 1 Episode 12', 'Season 1 Episode 13','Season 1 Episode 14','Season 1 Episode 15','Season 1 Episode 16','Season 1 Episode 17','Season 1 Episode 18', 'Season 1 Episode 19', 'Season 1 Episode 20','Season 1 Episode 21','Season 2 Episode 1', 'Season 2 Episode 2', 'Season 2 Episode 3', 'Season 2 Episode 4', 'Season 2 Episode 5', 'Season 2 Episode 6', 'Season 2 Episode 7', 'Season 2 Episode 8', 'Season 2 Episode 9', 'Season 2 Episode 10', 'Season 2 Episode 11', 'Season 2 Episode 12', 'Season 2 Episode 13', 'Season 2 Episode 14', 'Season 2 Episode 15', 'Season 2 Episode 16', 'Season 2 Episode 17', 'Season 2 Episode 18', 'Season 2 Episode 19', 'Season 2 Episode 20', 'Season 2 Episode 21', 'Season 2 Episode 21', 'Season 2 Episode 22', 'Season 2 Episode 23', 'Season 2 Episode 23', 'Season 2 Episode 24', 'Season 3 Episode 1', 'Season 3 Episode 2', 'Season 3 Episode 3', 'Season 3 Episode 4', 'Season 3 Episode 5', 'Season 3 Episode 6', 'Season 3 Episode 7', 'Season 3 Episode 8', 'Season 3 Episode 9', 'Season 3 Episode 10', 'Season 3 Episode 11', 'Season 3 Episode 12', 'Season 3 Episode 13', 'Season 3 Episode 14', 'Season 3 Episode 15', 'Season 3 Episode 16', 'Season 3 Episode 17', 'Season 3 Episode 18', 'Season 3 Episode 19', 'Season 3 Episode 20', 'Season 3 Episode 21', 'Season 3 Episode 22', 'Season 3 Episode 23', 'Season 3 Episode 24', 'Season 4 Episode 1', 'Season 4 Episode 2', 'Season 4 Episode 3', 'Season 4 Episode 4', 'Season 4 Episode 5', 'Season 4 Episode 6', 'Season 4 Episode 7', 'Season 4 Episode 8', 'Season 4 Episode 9', 'Season 4 Episode 10', 'Season 4 Episode 11', 'Season 4 Episode 12', 'Season 4 Episode 13', 'Season 4 Episode 14', 'Season 4 Episode 15', 'Season 4 Episode 16', 'Season 5 Episode 1', 'Season 5 Episode 2', 'Season 5 Episode 3', 'Season 5 Episode 4','Season 5 Episode 5','Season 5 Episode 6','Season 5 Episode 7','Season 5 Episode 8','Season 5 Episode 9','Season 5 Episode 10','Season 5 Episode 11','Season 5 Episode 12','Season 5 Episode 13','Season 5 Episode 14','Season 5 Episode 15','Season 5 Episode 16','Season 5 Episode 17','Season 5 Episode 18','Season 5 Episode 19','Season 5 Episode 20','Season 5 Episode 21','Season 5 Episode 22','Season 5 Episode 23','Season 5 Episode 24','Season 6 Episode 1','Season 6 Episode 2','Season 6 Episode 3','Season 6 Episode 4','Season 6 Episode 5','Season 6 Episode 6','Season 6 Episode 7','Season 6 Episode 8','Season 6 Episode 9','Season 6 Episode 10','Season 6 Episode 11','Season 6 Episode 12','Season 6 Episode 13','Season 6 Episode 14','Season 6 Episode 15','Season 6 Episode 16','Season 6 Episode 17','Season 6 Episode 18','Season 6 Episode 19','Season 6 Episode 20','Season 6 Episode 21','Season 7 Episode 1',]
 
 placeGuess.addEventListener('click',check);
 playAgain.addEventListener('click',tryAgain);
@@ -341,6 +354,10 @@ function S1E1(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E2(){
 	if (episodeGuess.value == 'Paternity') {
@@ -355,6 +372,10 @@ function S1E2(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 2');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E3(){
 	if (episodeGuess.value == "Occam's Razor") {
@@ -368,6 +389,10 @@ function S1E3(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 3');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E4(){
 	if (episodeGuess.value == 'Maternity') {
@@ -381,6 +406,10 @@ function S1E4(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 4');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E5(){
 	if (episodeGuess.value == 'Damned If You Do') {
@@ -394,6 +423,10 @@ function S1E5(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 5');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E6(){
 	if (episodeGuess.value == 'The Socratic Method') {
@@ -407,6 +440,10 @@ function S1E6(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 6');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E7(){
 	if (episodeGuess.value == 'Fidelity') {
@@ -420,6 +457,10 @@ function S1E7(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 7');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E8(){
 	if (episodeGuess.value == 'Posion') {
@@ -433,6 +474,10 @@ function S1E8(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 8');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E9(){
 	if (episodeGuess.value == 'DNR') {
@@ -446,6 +491,10 @@ function S1E9(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 9');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E10(){
 	if (episodeGuess.value == 'Histories') {
@@ -457,7 +506,11 @@ function S1E10(){
 		wrongOrRight.textContent = 'wrong - Histories';
 		wrongOrRight.style.color = 'red';
 		document.getElementById('housePNG').src = "houseSad.png";
-		updateStat();
+	}
+	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 10');
+		episodeDelete = episodes.splice(episodePreDelete,1);
 	}
 }
 function S1E11(){
@@ -472,6 +525,10 @@ function S1E11(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 11');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E12(){
 	if (episodeGuess.value == 'Sports Medicine') {
@@ -485,6 +542,10 @@ function S1E12(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 12');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E13(){
 	if (episodeGuess.value == 'Cursed') {
@@ -498,6 +559,10 @@ function S1E13(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 13');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E14(){
 	if (episodeGuess.value == 'Control') {
@@ -511,6 +576,10 @@ function S1E14(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 14');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E15(){
 	if (episodeGuess.value == 'Mob Rules') {
@@ -524,6 +593,10 @@ function S1E15(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 15');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E16(){
 	if (episodeGuess.value == 'Heavy') {
@@ -537,6 +610,10 @@ function S1E16(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 16');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E17(){
 	if (episodeGuess.value == 'Role Model') {
@@ -550,6 +627,10 @@ function S1E17(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 17');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E18(){
 	if (episodeGuess.value == 'Babies & Bathwater') {
@@ -563,6 +644,10 @@ function S1E18(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 18');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E19(){
 	if (episodeGuess.value == 'Kids') {
@@ -576,6 +661,10 @@ function S1E19(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 19');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E20(){
 	if (episodeGuess.value == 'Love Hurts') {
@@ -589,6 +678,10 @@ function S1E20(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 20');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E21(){
 	if (episodeGuess.value == 'Three Stories') {
@@ -602,6 +695,10 @@ function S1E21(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 21');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S1E22(){
 	if (episodeGuess.value == 'Honeymoon') {
@@ -615,6 +712,10 @@ function S1E22(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 1 Episode 22');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E1(){
 	if (episodeGuess.value == 'Acceptance') {
@@ -628,6 +729,10 @@ function S2E1(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E2(){
 	if (episodeGuess.value == 'Autopsy') {
@@ -641,6 +746,10 @@ function S2E2(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 2');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E3(){
 	if (episodeGuess.value == 'Humpty Dumpty') {
@@ -654,6 +763,10 @@ function S2E3(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 3');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E4(){
 	if (episodeGuess.value == 'TB or Not TB') {
@@ -667,6 +780,10 @@ function S2E4(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 4');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E5(){
 	if (episodeGuess.value == "Daddy's Boy") {
@@ -680,6 +797,10 @@ function S2E5(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 5');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E6(){
 	if (episodeGuess.value == 'Spin') {
@@ -693,6 +814,10 @@ function S2E6(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 6');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E7(){
 	if (episodeGuess.value == 'Hunting') {
@@ -706,6 +831,10 @@ function S2E7(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 7');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E8(){
 	if (episodeGuess.value == 'The Mistake') {
@@ -719,6 +848,10 @@ function S2E8(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 8');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E9(){
 	if (episodeGuess.value == 'Deception') {
@@ -732,6 +865,10 @@ function S2E9(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 9');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E10(){
 	if (episodeGuess.value == 'Failure to Communicate') {
@@ -745,6 +882,10 @@ function S2E10(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 10');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E11(){
 	if (episodeGuess.value == 'Need to Know') {
@@ -758,6 +899,10 @@ function S2E11(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 11');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E12(){
 	if (episodeGuess.value == 'Distractions') {
@@ -771,6 +916,10 @@ function S2E12(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 12');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E13(){
 	if (episodeGuess.value == 'Skin Deep') {
@@ -784,6 +933,10 @@ function S2E13(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 13');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E14(){
 	if (episodeGuess.value == 'Sex Kills') {
@@ -797,6 +950,10 @@ function S2E14(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 14');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E15(){
 	if (episodeGuess.value == 'Clueless') {
@@ -810,6 +967,10 @@ function S2E15(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 15');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E16(){
 	if (episodeGuess.value == 'Safe') {
@@ -823,6 +984,10 @@ function S2E16(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 16');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E17(){
 	if (episodeGuess.value == 'All In') {
@@ -836,6 +1001,10 @@ function S2E17(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 17');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E18(){
 	if (episodeGuess.value == 'Sleeping Dogs Lie') {
@@ -849,6 +1018,10 @@ function S2E18(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 18');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E19(){
 	if (episodeGuess.value == 'House vs. God') {
@@ -862,6 +1035,10 @@ function S2E19(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 19');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E20(){
 	if (episodeGuess.value == 'Euphoria: part 1') {
@@ -875,6 +1052,10 @@ function S2E20(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 20');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E21(){
 	if (episodeGuess.value == 'Euphoria: part 2') {
@@ -888,6 +1069,10 @@ function S2E21(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 21');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E22(){
 	if (episodeGuess.value == 'Forever') {
@@ -901,6 +1086,10 @@ function S2E22(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 22');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E23(){
 	if (episodeGuess.value == "Who's Your Daddy?") {
@@ -914,6 +1103,10 @@ function S2E23(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 23');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S2E24(){
 	if (episodeGuess.value == 'No Reason') {
@@ -927,6 +1120,10 @@ function S2E24(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 2 Episode 24');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E1(){
 	if (episodeGuess.value == 'Meaning') {
@@ -940,6 +1137,10 @@ function S3E1(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E2(){
 	if (episodeGuess.value == 'Cane and Able') {
@@ -953,6 +1154,10 @@ function S3E2(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 2');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E3(){
 	if (episodeGuess.value == 'Informed Consent') {
@@ -966,6 +1171,10 @@ function S3E3(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 3');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E4(){
 	if (episodeGuess.value == 'Lines in the Sand') {
@@ -979,6 +1188,10 @@ function S3E4(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 4');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E5(){
 	if (episodeGuess.value == 'Fools for Love') {
@@ -992,6 +1205,10 @@ function S3E5(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 5');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E6(){
 	if (episodeGuess.value == 'Que Sera Sera') {
@@ -1010,6 +1227,10 @@ function S3E6(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 6');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E7(){
 	if (episodeGuess.value == 'Son of Coma Guy') {
@@ -1023,6 +1244,10 @@ function S3E7(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 7');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E8(){
 	if (episodeGuess.value == 'Whac-A-Mole') {
@@ -1036,6 +1261,10 @@ function S3E8(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 8');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E9(){
 	if (episodeGuess.value == 'Finding Judas') {
@@ -1049,6 +1278,10 @@ function S3E9(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 9');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E10(){
 	if (episodeGuess.value == 'Merry Little Christmas') {
@@ -1062,6 +1295,10 @@ function S3E10(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 10');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E11(){
 	if (episodeGuess.value == 'Words and Deeds') {
@@ -1075,6 +1312,10 @@ function S3E11(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 11');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E12(){
 	if (episodeGuess.value == 'One Day, One Room') {
@@ -1088,6 +1329,10 @@ function S3E12(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 12');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E13(){
 	if (episodeGuess.value == 'Needle in a Haystack') {
@@ -1101,6 +1346,10 @@ function S3E13(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 13');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E14(){
 	if (episodeGuess.value == 'Insensitive') {
@@ -1114,6 +1363,10 @@ function S3E14(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 14');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E15(){
 	if (episodeGuess.value == 'Half-wit') {
@@ -1127,6 +1380,10 @@ function S3E15(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 15');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E16(){
 	if (episodeGuess.value == 'Top Secret') {
@@ -1140,6 +1397,10 @@ function S3E16(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 16');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E17(){
 	if (episodeGuess.value == 'Fetal Position') {
@@ -1153,6 +1414,10 @@ function S3E17(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 17');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E18(){
 	if (episodeGuess.value == 'Airborne') {
@@ -1166,6 +1431,10 @@ function S3E18(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 18');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E19(){
 	if (episodeGuess.value == 'Act Your Age') {
@@ -1179,6 +1448,10 @@ function S3E19(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 19');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E20(){
 	if (episodeGuess.value == 'House Training') {
@@ -1192,6 +1465,10 @@ function S3E20(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 20');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E21(){
 	if (episodeGuess.value == 'Family') {
@@ -1205,6 +1482,10 @@ function S3E21(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 21');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E22(){
 	if (episodeGuess.value == 'Resignation') {
@@ -1218,6 +1499,10 @@ function S3E22(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 22');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E23(){
 	if (episodeGuess.value == 'The Jerk') {
@@ -1231,6 +1516,10 @@ function S3E23(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 23');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S3E24(){
 	if (episodeGuess.value == 'Human Error') {
@@ -1244,6 +1533,10 @@ function S3E24(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 3 Episode 24');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E1(){
 	if (episodeGuess.value == 'Alone') {
@@ -1257,6 +1550,10 @@ function S4E1(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E2(){
 	if (episodeGuess.value == 'The Right Stuff') {
@@ -1270,6 +1567,10 @@ function S4E2(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 2');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E3(){
 	if (episodeGuess.value == '97 Seconds') {
@@ -1283,6 +1584,10 @@ function S4E3(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 3');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E4(){
 	if (episodeGuess.value == 'Guardian Angels') {
@@ -1296,6 +1601,10 @@ function S4E4(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 4');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E5(){
 	if (episodeGuess.value == 'Mirror Mirror') {
@@ -1309,6 +1618,10 @@ function S4E5(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 5');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E6(){
 	if (episodeGuess.value == 'Whatever It Takes') {
@@ -1322,6 +1635,10 @@ function S4E6(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 6');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E7(){
 	if (episodeGuess.value == 'Ugly') {
@@ -1335,6 +1652,10 @@ function S4E7(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 7');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E8(){
 	if (episodeGuess.value == "You Don't Want to Know") {
@@ -1348,6 +1669,10 @@ function S4E8(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 8');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E9(){
 	if (episodeGuess.value == 'Games') {
@@ -1361,6 +1686,10 @@ function S4E9(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 9');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E10(){
 	if (episodeGuess.value == "It's a Wonderful Lie") {
@@ -1374,6 +1703,10 @@ function S4E10(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 10');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E11(){
 	if (episodeGuess.value == 'Frozen') {
@@ -1387,6 +1720,10 @@ function S4E11(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 11');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E12(){
 	if (episodeGuess.value == "Don't Ever Change") {
@@ -1400,6 +1737,10 @@ function S4E12(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 12');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E13(){
 	if (episodeGuess.value == 'No More Mr. Nice Guy') {
@@ -1413,6 +1754,10 @@ function S4E13(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 13');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E14(){
 	if (episodeGuess.value == 'Living the Dream') {
@@ -1426,6 +1771,10 @@ function S4E14(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 14');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E15(){
 	if (episodeGuess.value == "House's Head") {
@@ -1438,7 +1787,11 @@ function S4E15(){
 		wrongOrRight.style.color = 'red';
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
-	updateStat();
+	updateStat(); 
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 15');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S4E16(){
 	if (episodeGuess.value == "Wilson's Heart") {
@@ -1452,6 +1805,10 @@ function S4E16(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 4 Episode 16');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E1(){
 	if (episodeGuess.value == 'Dying Changes Everything') {
@@ -1465,6 +1822,10 @@ function S5E1(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E2(){
 	if (episodeGuess.value == 'Not Cancer') {
@@ -1478,6 +1839,10 @@ function S5E2(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 2');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E3(){
 	if (episodeGuess.value == 'Adverse Events') {
@@ -1491,6 +1856,10 @@ function S5E3(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 3');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E4(){
 	if (episodeGuess.value == 'Birthmarks') {
@@ -1504,6 +1873,10 @@ function S5E4(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 4');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E5(){
 	if (episodeGuess.value == 'Lucky Thirteen') {
@@ -1517,6 +1890,10 @@ function S5E5(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 5');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E6(){
 	if (episodeGuess.value == 'Joy') {
@@ -1530,6 +1907,10 @@ function S5E6(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 6');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E7(){
 	if (episodeGuess.value == 'The Itch') {
@@ -1543,6 +1924,10 @@ function S5E7(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 7');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E8(){
 	if (episodeGuess.value == 'Emancipation') {
@@ -1556,6 +1941,10 @@ function S5E8(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 8');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E9(){
 	if (episodeGuess.value == 'Last Resort') {
@@ -1569,6 +1958,10 @@ function S5E9(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 9');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E10(){
 	if (episodeGuess.value == 'Let Them Eat Cake') {
@@ -1582,6 +1975,10 @@ function S5E10(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 10');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E11(){
 	if (episodeGuess.value == 'Joy to the World') {
@@ -1595,6 +1992,10 @@ function S5E11(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 11');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E12(){
 	if (episodeGuess.value == 'Painless') {
@@ -1608,6 +2009,10 @@ function S5E12(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 12');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E13(){
 	if (episodeGuess.value == 'Big Baby') {
@@ -1621,6 +2026,10 @@ function S5E13(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 13');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E14(){
 	if (episodeGuess.value == 'The Greater Good') {
@@ -1634,6 +2043,10 @@ function S5E14(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 14');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E15(){
 	if (episodeGuess.value == 'Unfaithful') {
@@ -1647,6 +2060,10 @@ function S5E15(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 15');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E16(){
 	if (episodeGuess.value == 'The Softer Side') {
@@ -1660,6 +2077,10 @@ function S5E16(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 16');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E17(){
 	if (episodeGuess.value == 'The Social Contract') {
@@ -1673,6 +2094,10 @@ function S5E17(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 17');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E18(){
 	if (episodeGuess.value == 'Here Kitty') {
@@ -1686,6 +2111,10 @@ function S5E18(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 18');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E19(){
 	if (episodeGuess.value == 'Locked In') {
@@ -1699,6 +2128,10 @@ function S5E19(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 19');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E20(){
 	if (episodeGuess.value == 'Simple Explanation') {
@@ -1712,6 +2145,10 @@ function S5E20(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 20');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E21(){
 	if (episodeGuess.value == 'Saviors') {
@@ -1725,6 +2162,10 @@ function S5E21(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 21');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E22(){
 	if (episodeGuess.value == 'House Divided') {
@@ -1737,7 +2178,10 @@ function S5E22(){
 		wrongOrRight.style.color = 'red';
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
-	updateStat();
+	updateStat();if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 22');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E23(){
 	if (episodeGuess.value == 'Under My Skin') {
@@ -1751,6 +2195,10 @@ function S5E23(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 23');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S5E24(){
 	if (episodeGuess.value == 'Both Sides Now') {
@@ -1764,6 +2212,10 @@ function S5E24(){
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 5 Episode 24');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E1() {
 	if (episodeGuess.value == 'Broken') {
@@ -1777,6 +2229,10 @@ function S6E1() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E2() {
 	if (episodeGuess.value == 'Epic Fail') {
@@ -1790,6 +2246,10 @@ function S6E2() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 2');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E3() {
 	if (episodeGuess.value == 'The Tyrant') {
@@ -1803,6 +2263,10 @@ function S6E3() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 3');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E4() {
 	if (episodeGuess.value == 'Instant Karma') {
@@ -1816,6 +2280,10 @@ function S6E4() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 4');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E5() {
 	if (episodeGuess.value == 'Brave Heart') {
@@ -1829,6 +2297,10 @@ function S6E5() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 5');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E6() {
 	if (episodeGuess.value == 'Known Unknowns') {
@@ -1842,6 +2314,10 @@ function S6E6() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 6');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E7() {
 	if (episodeGuess.value == 'Teamwork') {
@@ -1855,6 +2331,10 @@ function S6E7() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 7');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E8() {
 	if (episodeGuess.value == 'Ignorance Is Bliss') {
@@ -1868,6 +2348,10 @@ function S6E8() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 8');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E9() {
 	if (episodeGuess.value == 'Wilson') {
@@ -1881,6 +2365,10 @@ function S6E9() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 9');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E10() {
 	if (episodeGuess.value == 'The Down Low') {
@@ -1894,6 +2382,10 @@ function S6E10() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 10');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E11() {
 	if (episodeGuess.value == 'Remorse') {
@@ -1907,6 +2399,10 @@ function S6E11() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 11');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E12() {
 	if (episodeGuess.value == 'Moving the Chains') {
@@ -1920,6 +2416,10 @@ function S6E12() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 12');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E13() {
 	if (episodeGuess.value == '5 to 9') {
@@ -1933,6 +2433,10 @@ function S6E13() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 13');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E14() {
 	if (episodeGuess.value == 'Private Lives') {
@@ -1946,6 +2450,10 @@ function S6E14() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 14');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E15() {
 	if (episodeGuess.value == 'Black Hole') {
@@ -1959,6 +2467,10 @@ function S6E15() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 15');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E16() {
 	if (episodeGuess.value == 'Lockdown') {
@@ -1972,6 +2484,10 @@ function S6E16() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 16');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E17() {
 	if (episodeGuess.value == 'Knight Fall') {
@@ -1985,6 +2501,10 @@ function S6E17() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 17');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E18() {
 	if (episodeGuess.value == 'Open and Shut') {
@@ -1998,6 +2518,10 @@ function S6E18() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 18');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E19() {
 	if (episodeGuess.value == 'The Choice') {
@@ -2011,6 +2535,10 @@ function S6E19() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 19');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E20() {
 	if (episodeGuess.value == 'Baggage') {
@@ -2024,6 +2552,10 @@ function S6E20() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 20');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S6E21() {
 	if (episodeGuess.value == 'Help Me') {
@@ -2037,6 +2569,10 @@ function S6E21() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 6 Episode 21');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
 function S7E1() {
 	if (episodeGuess.value == 'Now What?') {
@@ -2050,4 +2586,8 @@ function S7E1() {
 		document.getElementById('housePNG').src = "houseSad.png";
 	}
 	updateStat();
+	if (noRepeatButt == true) {
+		episodePreDelete = episodes.indexOf('Season 7 Episode 1');
+		episodeDelete = episodes.splice(episodePreDelete,1);
+	}
 }
