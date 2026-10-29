@@ -19,7 +19,7 @@ body{
 .list {
 	font-size: 19px;
 	text-align:left;
-	padding-bottom:40%;
+	padding-bottom:20%;
 }
 #episodePNG{
 	border: solid black 5px;

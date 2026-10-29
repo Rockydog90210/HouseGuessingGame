@@ -2,6 +2,9 @@ body{
 	background-color:#89a9b7;
 	overflow-x: hidden;
 }
+.tittle {
+	font-family: Spectral;
+}
 .main {
 	text-align:center;
 }
