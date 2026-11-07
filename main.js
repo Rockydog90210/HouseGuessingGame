@@ -1,25 +1,28 @@
 placeGuess = document.getElementById('submitGuess') //button
-episodeIndex = document.getElementById('episodeTitle') //placeholder where title goes
-const episodeGuess = document.getElementById('episodeGuess') //imput
-wrongOrRight = document.getElementById('wrongOrRight')
-playAgain = document.getElementById('playAgain')
-noRepeatFun = document.getElementById('noRepeatButtion')
-hardModeButton = document.getElementById('hardModeEnable')
+    episodeIndex = document.getElementById('episodeTitle') //placeholder where title goes
+    const episodeGuess = document.getElementById('episodeGuess') //imput
+    wrongOrRight = document.getElementById('wrongOrRight')
+    playAgain = document.getElementById('playAgain')
+    noRepeatFun = document.getElementById('noRepeatButtion')
+    hardModeButton = document.getElementById('hardModeEnable')
+    easyModeButton = document.getElementById('easyModeEnable')
 
-Correct = document.getElementById('Right')
-Incorrect = document.getElementById('Wrong')
-Percent = document.getElementById('Percent')
+    Correct = document.getElementById('Right')
+    Incorrect = document.getElementById('Wrong')
+    Percent = document.getElementById('Percent')
 
-var totCorrect = 0;
+    var totCorrect = 0;
 var totWrong = 0;
 let alreadyGussed = false
-let noRepeatButt = false
-let hardMode = false
+    let noRepeatButt = false
+    let hardMode = false
+    let easyMode = false
 
-window.addEventListener('load', restartArray);
+    window.addEventListener('load', restartArray);
 window.addEventListener('load', tryAgain);
 noRepeatFun.addEventListener('click', toggleRepeat);
 hardModeButton.addEventListener('click', hardModeToggle);
+easyModeButton.addEventListener('click', easyModeToggle);
 
 episodeGuess.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
@@ -51,8 +54,8 @@ function updateStat() {
             totWrong = 0;
             Correct.textContent = totCorrect;
             Incorrect.textContent = totWrong;
-			Percent.textContent = "0"
-            restartArray();
+            Percent.textContent = "0"
+                restartArray();
         }
     }
 }
@@ -65,8 +68,17 @@ function hardModeToggle() {
         document.getElementById("hardModeEnable").style.backgroundColor = 'white';
     }
 }
+function easyModeToggle() {
+    if (easyMode == false) {
+        easyMode = true;
+        document.getElementById("easyModeEnable").style.backgroundColor = 'green';
+    } else if (easyMode == true) {
+        easyMode = false;
+        document.getElementById("easyModeEnable").style.backgroundColor = 'white';
+    }
+}
 function restartArray() {
-    episodes = ['Season 1 Episode 1','Season 1 Episode 2', 'Season 1 Episode 3', 'Season 1 Episode 4', 'Season 1 Episode 5', 'Season 1 Episode 6', 'Season 1 Episode 7', 'Season 1 Episode 8', 'Season 1 Episode 9', 'Season 1 Episode 10', 'Season 1 Episode 11', 'Season 1 Episode 12', 'Season 1 Episode 13', 'Season 1 Episode 14', 'Season 1 Episode 15', 'Season 1 Episode 16', 'Season 1 Episode 17', 'Season 1 Episode 18', 'Season 1 Episode 19', 'Season 1 Episode 20', 'Season 1 Episode 21', 'Season 2 Episode 1', 'Season 2 Episode 2', 'Season 2 Episode 3', 'Season 2 Episode 4', 'Season 2 Episode 5', 'Season 2 Episode 6', 'Season 2 Episode 7', 'Season 2 Episode 8', 'Season 2 Episode 9', 'Season 2 Episode 10', 'Season 2 Episode 11', 'Season 2 Episode 12', 'Season 2 Episode 13', 'Season 2 Episode 14', 'Season 2 Episode 15', 'Season 2 Episode 16', 'Season 2 Episode 17', 'Season 2 Episode 18', 'Season 2 Episode 19', 'Season 2 Episode 20', 'Season 2 Episode 21', 'Season 2 Episode 21', 'Season 2 Episode 22', 'Season 2 Episode 23', 'Season 2 Episode 23', 'Season 2 Episode 24', 'Season 3 Episode 1', 'Season 3 Episode 2', 'Season 3 Episode 3', 'Season 3 Episode 4', 'Season 3 Episode 5', 'Season 3 Episode 6', 'Season 3 Episode 7', 'Season 3 Episode 8', 'Season 3 Episode 9', 'Season 3 Episode 10', 'Season 3 Episode 11', 'Season 3 Episode 12', 'Season 3 Episode 13', 'Season 3 Episode 14', 'Season 3 Episode 15', 'Season 3 Episode 16', 'Season 3 Episode 17', 'Season 3 Episode 18', 'Season 3 Episode 19', 'Season 3 Episode 20', 'Season 3 Episode 21', 'Season 3 Episode 22', 'Season 3 Episode 23', 'Season 3 Episode 24', 'Season 4 Episode 1', 'Season 4 Episode 2', 'Season 4 Episode 3', 'Season 4 Episode 4', 'Season 4 Episode 5', 'Season 4 Episode 6', 'Season 4 Episode 7', 'Season 4 Episode 8', 'Season 4 Episode 9', 'Season 4 Episode 10', 'Season 4 Episode 11', 'Season 4 Episode 12', 'Season 4 Episode 13', 'Season 4 Episode 14', 'Season 4 Episode 15', 'Season 4 Episode 16', 'Season 5 Episode 1', 'Season 5 Episode 2', 'Season 5 Episode 3', 'Season 5 Episode 4', 'Season 5 Episode 5', 'Season 5 Episode 6', 'Season 5 Episode 7', 'Season 5 Episode 8', 'Season 5 Episode 9', 'Season 5 Episode 10', 'Season 5 Episode 11', 'Season 5 Episode 12', 'Season 5 Episode 13', 'Season 5 Episode 14', 'Season 5 Episode 15', 'Season 5 Episode 16', 'Season 5 Episode 17', 'Season 5 Episode 18', 'Season 5 Episode 19', 'Season 5 Episode 20', 'Season 5 Episode 21', 'Season 5 Episode 22', 'Season 5 Episode 23', 'Season 5 Episode 24', 'Season 6 Episode 1', 'Season 6 Episode 2', 'Season 6 Episode 3', 'Season 6 Episode 4', 'Season 6 Episode 5', 'Season 6 Episode 6', 'Season 6 Episode 7', 'Season 6 Episode 8', 'Season 6 Episode 9', 'Season 6 Episode 10', 'Season 6 Episode 11', 'Season 6 Episode 12', 'Season 6 Episode 13', 'Season 6 Episode 14', 'Season 6 Episode 15', 'Season 6 Episode 16', 'Season 6 Episode 17', 'Season 6 Episode 18', 'Season 6 Episode 19', 'Season 6 Episode 20', 'Season 6 Episode 21', 'Season 7 Episode 1','Season 7 Episode 2','Season 7 Episode 3','Season 7 Episode 4','Season 7 Episode 5', 'Season 7 Episode 6', 'Season 7 Episode 7', 'Season 7 Episode 8', 'Season 7 Episode 9', 'Season 7 Episode 10', 'Season 7 Episode 11', 'Season 7 Episode 12', 'Season 7 Episode 13', 'Season 7 Episode 14', 'Season 7 Episode 15', 'Season 7 Episode 16', 'Season 7 Episode 17', 'Season 7 Episode 18', 'Season 7 Episode 19', 'Season 7 Episode 20', 'Season 7 Episode 21', ]
+    episodes = ['Season 1 Episode 1', 'Season 1 Episode 2', 'Season 1 Episode 3', 'Season 1 Episode 4', 'Season 1 Episode 5', 'Season 1 Episode 6', 'Season 1 Episode 7', 'Season 1 Episode 8', 'Season 1 Episode 9', 'Season 1 Episode 10', 'Season 1 Episode 11', 'Season 1 Episode 12', 'Season 1 Episode 13', 'Season 1 Episode 14', 'Season 1 Episode 15', 'Season 1 Episode 16', 'Season 1 Episode 17', 'Season 1 Episode 18', 'Season 1 Episode 19', 'Season 1 Episode 20', 'Season 1 Episode 21', 'Season 1 Episode 22', 'Season 2 Episode 1', 'Season 2 Episode 2', 'Season 2 Episode 3', 'Season 2 Episode 4', 'Season 2 Episode 5', 'Season 2 Episode 6', 'Season 2 Episode 7', 'Season 2 Episode 8', 'Season 2 Episode 9', 'Season 2 Episode 10', 'Season 2 Episode 11', 'Season 2 Episode 12', 'Season 2 Episode 13', 'Season 2 Episode 14', 'Season 2 Episode 15', 'Season 2 Episode 16', 'Season 2 Episode 17', 'Season 2 Episode 18', 'Season 2 Episode 19', 'Season 2 Episode 20', 'Season 2 Episode 21', 'Season 2 Episode 21', 'Season 2 Episode 22', 'Season 2 Episode 23', 'Season 2 Episode 23', 'Season 2 Episode 24', 'Season 3 Episode 1', 'Season 3 Episode 2', 'Season 3 Episode 3', 'Season 3 Episode 4', 'Season 3 Episode 5', 'Season 3 Episode 6', 'Season 3 Episode 7', 'Season 3 Episode 8', 'Season 3 Episode 9', 'Season 3 Episode 10', 'Season 3 Episode 11', 'Season 3 Episode 12', 'Season 3 Episode 13', 'Season 3 Episode 14', 'Season 3 Episode 15', 'Season 3 Episode 16', 'Season 3 Episode 17', 'Season 3 Episode 18', 'Season 3 Episode 19', 'Season 3 Episode 20', 'Season 3 Episode 21', 'Season 3 Episode 22', 'Season 3 Episode 23', 'Season 3 Episode 24', 'Season 4 Episode 1', 'Season 4 Episode 2', 'Season 4 Episode 3', 'Season 4 Episode 4', 'Season 4 Episode 5', 'Season 4 Episode 6', 'Season 4 Episode 7', 'Season 4 Episode 8', 'Season 4 Episode 9', 'Season 4 Episode 10', 'Season 4 Episode 11', 'Season 4 Episode 12', 'Season 4 Episode 13', 'Season 4 Episode 14', 'Season 4 Episode 15', 'Season 4 Episode 16', 'Season 5 Episode 1', 'Season 5 Episode 2', 'Season 5 Episode 3', 'Season 5 Episode 4', 'Season 5 Episode 5', 'Season 5 Episode 6', 'Season 5 Episode 7', 'Season 5 Episode 8', 'Season 5 Episode 9', 'Season 5 Episode 10', 'Season 5 Episode 11', 'Season 5 Episode 12', 'Season 5 Episode 13', 'Season 5 Episode 14', 'Season 5 Episode 15', 'Season 5 Episode 16', 'Season 5 Episode 17', 'Season 5 Episode 18', 'Season 5 Episode 19', 'Season 5 Episode 20', 'Season 5 Episode 21', 'Season 5 Episode 22', 'Season 5 Episode 23', 'Season 5 Episode 24', 'Season 6 Episode 1', 'Season 6 Episode 2', 'Season 6 Episode 3', 'Season 6 Episode 4', 'Season 6 Episode 5', 'Season 6 Episode 6', 'Season 6 Episode 7', 'Season 6 Episode 8', 'Season 6 Episode 9', 'Season 6 Episode 10', 'Season 6 Episode 11', 'Season 6 Episode 12', 'Season 6 Episode 13', 'Season 6 Episode 14', 'Season 6 Episode 15', 'Season 6 Episode 16', 'Season 6 Episode 17', 'Season 6 Episode 18', 'Season 6 Episode 19', 'Season 6 Episode 20', 'Season 6 Episode 21', 'Season 7 Episode 1', 'Season 7 Episode 2', 'Season 7 Episode 3', 'Season 7 Episode 4', 'Season 7 Episode 5', 'Season 7 Episode 6', 'Season 7 Episode 7', 'Season 7 Episode 8', 'Season 7 Episode 9', 'Season 7 Episode 10', 'Season 7 Episode 11', 'Season 7 Episode 12', 'Season 7 Episode 13', 'Season 7 Episode 14', 'Season 7 Episode 15', 'Season 7 Episode 16', 'Season 7 Episode 17', 'Season 7 Episode 18', 'Season 7 Episode 19', 'Season 7 Episode 20', 'Season 7 Episode 21', ]
 }
 
 placeGuess.addEventListener('click', check);
@@ -74,15 +86,17 @@ playAgain.addEventListener('click', tryAgain);
 
 function tryAgain() {
     episodeX = randomValueFromArray(episodes);
+   // episodeX = 'Season 1 Episode 1';
     episodeIndex.textContent = episodeX;
     wrongOrRight.textContent = '';
     document.getElementById('housePNG').src = "houseNet.png";
     episodeGuess.value = '';
+    episodeGuessEasy = '';
     alreadyGussed = false;
 
 }
 function check() {
-	episodeGuess.toLowerCase
+    episodeGuess.toLowerCase
     if (alreadyGussed == false) {
         check2();
         alreadyGussed = true;
@@ -93,2938 +107,1850 @@ function check() {
 }
 function check2() {
 
+    if (easyMode == true) {
+        episodeGuessEasy = episodeGuess.value.toLowerCase();
+        console.log(episodeGuessEasy);
+    }
     if (episodeX == 'Season 1 Episode 1') {
-        S1E1();
+        episodeName = 'Pilot';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+
     } else if (episodeX == 'Season 1 Episode 2') {
-        S1E2();
+        episodeName = 'Paternity';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+
     } else if (episodeX == 'Season 1 Episode 3') {
-        S1E3();
+        episodeName = "Occam's Razor";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+
     } else if (episodeX == 'Season 1 Episode 4') {
-        S1E4();
+        episodeName = 'Maternity';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+
     } else if (episodeX == 'Season 1 Episode 5') {
-        S1E5();
+        episodeName = 'Damned If You Do';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+
     } else if (episodeX == 'Season 1 Episode 6') {
-        S1E6();
+        episodeName = 'The Socratic Method';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 7') {
-        S1E7();
+        episodeName = 'Fidelity';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 8') {
-        S1E8();
+        episodeName = 'Poison';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 9') {
-        S1E9();
+        episodeName = 'DNR';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 10') {
-        S1E10();
+        episodeName = 'Histories';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 11') {
-        S1E11();
+        episodeName = 'Detox';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 12') {
-        S1E12();
+        episodeName = 'Sports Medicine';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 13') {
-        S1E13();
+        episodeName = 'Cursed';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 14') {
-        S1E14();
+        episodeName = 'Control';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 15') {
-        S1E15();
+        episodeName = 'Mob Rules';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 16') {
-        S1E16();
+        episodeName = 'Heavy';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 17') {
-        S1E17();
+        episodeName = 'Role Model';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 17');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 18') {
-        S1E18();
+        episodeName = 'Babies & Bathwater';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 18');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 19') {
-        S1E19();
+        episodeName = 'Kids';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 19');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 20') {
-        S1E20();
+        episodeName = 'Love Hurts';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 20');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 1 Episode 21') {
-        S1E21();
+        episodeName = 'Three Stories';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 21');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 1 Episode 22') {
+        episodeName = 'Honeymoon';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 1 Episode 22');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 1') {
-        S2E1();
+        episodeName = 'Acceptance';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 2') {
-        S2E2();
+        episodeName = 'Autopsy';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 3') {
-        S2E3();
+        episodeName = 'Humpty Dumpty';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 4') {
-        S2E4();
+        episodeName = 'TB or Not TB';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 5') {
-        S2E5();
+        episodeName = "Daddy's Boy";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 6') {
-        S2E6();
+        episodeName = 'Spin';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 7') {
-        S2E7();
+        episodeName = 'Hunting';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 8') {
-        S2E8();
+        episodeName = 'The Mistake';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 9') {
-        S2E9();
+        episodeName = 'Deception';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 10') {
-        S2E10();
+        episodeName = 'Failure to Communicate';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 11') {
-        S2E11();
+        episodeName = 'Need to Know';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 12') {
-        S2E12();
+        episodeName = 'Distractions';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 13') {
-        S2E13();
+        episodeName = 'Skin Deep';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 14') {
-        S2E14();
+        episodeName = 'Sex Kills';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 15') {
-        S2E15();
+        episodeName = 'Clueless';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 16') {
-        S2E16();
+        episodeName = 'Safe';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 17') {
-        S2E17();
+        episodeName = 'All In';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 17');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 18') {
-        S2E18();
+        episodeName = 'Sleeping Dogs Lie';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 18');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+
     } else if (episodeX == 'Season 2 Episode 19') {
-        S2E19();
+        episodeName = 'House vs. God';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 19');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 20') {
-        S2E20();
+        episodeName = 'Euphoria: part 1';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 20');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 21') {
-        S2E21();
+        episodeName = 'Euphoria: part 2';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 21');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 22') {
-        S2E22();
+        episodeName = 'Forever';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 22');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 23') {
-        S2E23();
+        episodeName = "Who's Your Daddy?";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 23');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 2 Episode 24') {
-        S2E24();
+        episodeName = 'No Reason';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 2 Episode 24');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 1') {
-        S3E1();
+        episodeName = 'Meaning';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 2') {
-        S3E2();
+        episodeName = 'Cane and Able';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 3') {
-        S3E3();
+        episodeName = 'Informed Consent';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 4') {
-        S3E4();
+        episodeName = 'Lines in the Sand';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 5') {
-        S3E5();
+        episodeName = 'Fools for Love';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 6') {
-        S3E6();
+        episodeName = 'Que Será Será';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase() || episodeGuess.value == 'Que Sera Sera') {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 7') {
-        S3E7();
+        episodeName = 'Son of Coma Guy';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 8') {
-        S3E8();
+        episodeName = 'Whac-A-Mole';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 9') {
-        S3E9();
+        episodeName = 'Finding Judas';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 10') {
-        S3E10();
+        episodeName = 'Merry Little Christmas';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 11') {
-        S3E11();
+        episodeName = 'Words and Deeds';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 12') {
-        S3E12();
+        episodeName = 'One Day, One Room';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 13') {
-        S3E13();
+        episodeName = 'Needle in a Haystack';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 14') {
-        S3E14();
+        episodeName = 'Insensitive';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 15') {
-        S3E15();
+        episodeName = 'Half-wit';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 16') {
-        S3E16();
+        episodeName = 'Top Secret';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 17') {
-        S3E17();
+        episodeName = 'Fetal Position';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 17');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 18') {
-        S3E18();
+        episodeName = 'Airborne';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 18');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 19') {
-        S3E19();
+        episodeName = 'Act Your Age';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 19');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 20') {
-        S3E20();
+        episodeName = 'House Training';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 20');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 21') {
-        S3E21();
+        episodeName = 'Family';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 21');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 22') {
-        S3E22();
+        episodeName = 'Resignation';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 22');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 23') {
-        S3E23();
+        episodeName = 'The Jerk';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 23');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 3 Episode 24') {
-        S3E24();
+        episodeName = 'Human Error';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 3 Episode 24');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 1') {
-        S4E1();
+        episodeName = 'Alone';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 2') {
-        S4E2();
+        episodeName = 'The Right Stuff';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 3') {
-        S4E3();
+        episodeName = '97 Seconds';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 4') {
-        S4E4();
+        episodeName = 'Guardian Angels';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 5') {
-        S4E5();
+        episodeName = 'Mirror Mirror';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 6') {
-        S4E6();
+        episodeName = 'Whatever It Takes';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 7') {
-        S4E7();
+        episodeName = 'Ugly';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 8') {
-        S4E8();
+        episodeName = "You Don't Want to Know";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 9') {
-        S4E9();
+        episodeName = 'Games';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 10') {
-        S4E10();
+        episodeName = "It's a Wonderful Lie";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 11') {
-        S4E11();
+        episodeName = 'Frozen';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 12') {
-        S4E12();
+        episodeName = "Don't Ever Change";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 13') {
-        S4E13();
+        episodeName = 'No More Mr. Nice Guy';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 14') {
-        S4E14();
+        episodeName = 'Living the Dream';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 15') {
-        S4E15();
+        episodeName = "House's Head";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 4 Episode 16') {
-        S4E16();
+        episodeName = "Wilson's Heart";
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 4 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 1') {
-        S5E1();
+        episodeName = 'Dying Changes Everything';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 2') {
-        S5E2();
+        episodeName = 'Not Cancer';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 3') {
-        S5E3();
+        episodeName = 'Adverse Events';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 4') {
-        S5E4();
+        episodeName = 'Birthmarks';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 5') {
-        S5E5();
+        episodeName = 'Lucky Thirteen';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 6') {
-        S5E6();
+        episodeName = 'Joy';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 7') {
-        S5E7();
+        episodeName = 'The Itch';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 8') {
-        S5E8();
+        episodeName = 'Emancipation';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 9') {
-        S5E9();
+        episodeName = 'Last Resort';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 10') {
-        S5E10();
+        episodeName = 'Let Them Eat Cake';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 11') {
-        S5E11();
+        episodeName = 'Joy to the World';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 12') {
-        S5E12();
+        episodeName = 'Painless';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 13') {
-        S5E13();
+        episodeName = 'Big Baby';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 14') {
-        S5E14()
+        episodeName = 'The Greater Good';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 15') {
-        S5E15();
+        episodeName = 'Unfaithful';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 16') {
-        S5E16();
+        episodeName = 'The Softer Side';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 17') {
-        S5E17();
+        episodeName = 'The Social Contract';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 17');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 18') {
-        S5E18();
+        episodeName = 'Here Kitty';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 18');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 19') {
-        S5E19();
+        episodeName = 'Locked In';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 19');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 20') {
-        S5E20();
+        episodeName = 'Simple Explanation';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 20');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 21') {
-        S5E21();
+        episodeName = 'Saviors';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 21');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 22') {
-        S5E22();
+        episodeName = 'House Divided';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 22');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 23') {
-        S5E23();
+        episodeName = 'Under My Skin';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 23');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 5 Episode 24') {
-        S5E24();
+        episodeName = 'Both Sides Now';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 5 Episode 24');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 1') {
-        S6E1();
+        episodeName = 'Broken';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 2') {
-        S6E2();
+        episodeName = 'Epic Fail';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 3') {
-        S6E3();
+        episodeName = 'The Tyrant';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 4') {
-        S6E4();
+        episodeName = 'Instant Karma';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 5') {
-        S6E5();
+        episodeName = 'Brave Heart';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 6') {
-        S6E6();
+        episodeName = 'Known Unknows';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 7') {
-        S6E7();
+        episodeName = 'Teamwork';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 8') {
-        S6E8();
+        episodeName = 'Ignorance Is Bliss';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 9') {
-        S6E9();
+        episodeName = 'Wilson';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 10') {
-        S6E10();
+        episodeName = 'The Down Low';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 11') {
-        S6E11();
+        episodeName = 'Remorse';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 12') {
-        S6E12();
+        episodeName = 'Moving the Chains';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 13') {
-        S6E13();
+        episodeName = '5 to 9';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 14') {
-        S6E14();
+        episodeName = 'Private Lives';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 15') {
-        S6E15();
+        episodeName = 'Black Hole';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 16') {
-        S6E16();
+        episodeName = 'Lockdown';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 17') {
-        S6E17();
+        episodeName = 'Knight Fall';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 17');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 18') {
-        S6E18();
+        episodeName = 'Open and Shut';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 18');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 19') {
-        S6E19();
+        episodeName = 'The Choice';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 19');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 20') {
-        S6E20();
+        episodeName = 'Baggage';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 20');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 6 Episode 21') {
-        S6E21();
+        episodeName = 'Help Me';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 6 Episode 21');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     } else if (episodeX == 'Season 7 Episode 1') {
-        S7E1();
-    }else if (episodeX == 'Season 7 Episode 2') {
-        S7E2();
-    }else if (episodeX == 'Season 7 Episode 3') {
-        S7E3();
-    }else if (episodeX == 'Season 7 Episode 4') {
-        S7E4();
-    }else if (episodeX == 'Season 7 Episode 5') {
-        S7E5();
-    }else if (episodeX == 'Season 7 Episode 6') {
-        S7E6();
-    }else if (episodeX == 'Season 7 Episode 7') {
-        S7E7();
-    }else if (episodeX == 'Season 7 Episode 8') {
-        S7E8();
-    }else if (episodeX == 'Season 7 Episode 9') {
-        S7E9();
-    }else if (episodeX == 'Season 7 Episode 10') {
-        S7E10();
-    }else if (episodeX == 'Season 7 Episode 11') {
-        S7E11();
-    }else if (episodeX == 'Season 7 Episode 12') {
-        S7E12();
-    }else if (episodeX == 'Season 7 Episode 13') {
-        S7E13();
-    }else if (episodeX == 'Season 7 Episode 14') {
-        S7E14();
-    }else if (episodeX == 'Season 7 Episode 15') {
-        S7E15();
-    }else if (episodeX == 'Season 7 Episode 16') {
-        S7E16();
-    }else if (episodeX == 'Season 7 Episode 17') {
-        S7E17();
-    }else if (episodeX == 'Season 7 Episode 18') {
-        S7E18();
-    }else if (episodeX == 'Season 7 Episode 19') {
-        S7E19();
-    }else if (episodeX == 'Season 7 Episode 20') {
-        S7E20();
-    }else if (episodeX == 'Season 7 Episode 21') {
-        S7E21();
-    }
-
-}
-
-function S1E1() {
-    if (episodeGuess.value == 'Pilot') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Pilot') {
-        wrongOrRight.textContent = 'wrong - Pilot';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E2() {
-    if (episodeGuess.value == 'Paternity') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-
-    } else if (episodeGuess.value !== 'Paternity') {
-        wrongOrRight.textContent = 'wrong - Paternity';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E3() {
-    if (episodeGuess.value == "Occam's Razor") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "Occam's Razor") {
-        wrongOrRight.textContent = "Wrong - Occam's Razor";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E4() {
-    if (episodeGuess.value == 'Maternity') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Maternity') {
-        wrongOrRight.textContent = 'wrong - Maternity';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E5() {
-    if (episodeGuess.value == 'Damned If You Do') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Damned If You Do') {
-        wrongOrRight.textContent = 'wrong - Damned If You Do';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E6() {
-    if (episodeGuess.value == 'The Socratic Method') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Socratic Method') {
-        wrongOrRight.textContent = 'wrong - The Socratic Method';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E7() {
-    if (episodeGuess.value == 'Fidelity') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Fidelity') {
-        wrongOrRight.textContent = 'wrong - Fidelity';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E8() {
-    if (episodeGuess.value == 'Poison') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Poison') {
-        wrongOrRight.textContent = 'wrong - Poison';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E9() {
-    if (episodeGuess.value == 'DNR') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'DNR') {
-        wrongOrRight.textContent = 'wrong - DNR';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E10() {
-    if (episodeGuess.value == 'Histories') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Histories') {
-        wrongOrRight.textContent = 'wrong - Histories';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E11() {
-    if (episodeGuess.value == 'Detox') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Detox') {
-        wrongOrRight.textContent = 'wrong - Detox';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E12() {
-    if (episodeGuess.value == 'Sports Medicine') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Sports Medicine') {
-        wrongOrRight.textContent = 'wrong - Sports Medicine';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E13() {
-    if (episodeGuess.value == 'Cursed') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Cursed') {
-        wrongOrRight.textContent = 'wrong - Cursed';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E14() {
-    if (episodeGuess.value == 'Control') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Control') {
-        wrongOrRight.textContent = 'wrong - Control';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E15() {
-    if (episodeGuess.value == 'Mob Rules') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Mob Rules') {
-        wrongOrRight.textContent = 'wrong - Mob Rules';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E16() {
-    if (episodeGuess.value == 'Heavy') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Heavy') {
-        wrongOrRight.textContent = 'wrong - Heavy';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E17() {
-    if (episodeGuess.value == 'Role Model') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Role Model') {
-        wrongOrRight.textContent = 'wrong - Role Model';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 17');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E18() {
-    if (episodeGuess.value == 'Babies & Bathwater') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Babies & Bathwater') {
-        wrongOrRight.textContent = 'wrong - Babies & Bathwater';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 18');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E19() {
-    if (episodeGuess.value == 'Kids') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Kids') {
-        wrongOrRight.textContent = 'wrong - Kids';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 19');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E20() {
-    if (episodeGuess.value == 'Love Hurts') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Love Hurts') {
-        wrongOrRight.textContent = 'wrong - Love Hurts';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 20');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E21() {
-    if (episodeGuess.value == 'Three Stories') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Three Stories') {
-        wrongOrRight.textContent = 'wrong - Three Stories';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 21');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S1E22() {
-    if (episodeGuess.value == 'Honeymoon') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Honeymoon') {
-        wrongOrRight.textContent = 'wrong - Honeymoon';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 1 Episode 22');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E1() {
-    if (episodeGuess.value == 'Acceptance') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Acceptance') {
-        wrongOrRight.textContent = 'wrong - Acceptance';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E2() {
-    if (episodeGuess.value == 'Autopsy') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Autopsy') {
-        wrongOrRight.textContent = 'wrong - Autopsy';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E3() {
-    if (episodeGuess.value == 'Humpty Dumpty') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Humpty Dumpty') {
-        wrongOrRight.textContent = 'wrong - Humpty Dumpty';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E4() {
-    if (episodeGuess.value == 'TB or Not TB') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'TB or Not TB') {
-        wrongOrRight.textContent = 'wrong - TB or Not TB';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E5() {
-    if (episodeGuess.value == "Daddy's Boy") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "Daddy's Boy") {
-        wrongOrRight.textContent = "wrong - Daddy's Boy";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E6() {
-    if (episodeGuess.value == 'Spin') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Spin') {
-        wrongOrRight.textContent = 'wrong - Spin';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E7() {
-    if (episodeGuess.value == 'Hunting') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Hunting') {
-        wrongOrRight.textContent = 'wrong - Hunting';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E8() {
-    if (episodeGuess.value == 'The Mistake') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Mistake') {
-        wrongOrRight.textContent = 'wrong - The Mistake';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E9() {
-    if (episodeGuess.value == 'Deception') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Deception') {
-        wrongOrRight.textContent = 'wrong - Deception';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E10() {
-    if (episodeGuess.value == 'Failure to Communicate') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Failure to Communicate') {
-        wrongOrRight.textContent = 'wrong - Failure to Communicate';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E11() {
-    if (episodeGuess.value == 'Need to Know') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Need to Know') {
-        wrongOrRight.textContent = 'wrong - Need to Know';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E12() {
-    if (episodeGuess.value == 'Distractions') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Distractions') {
-        wrongOrRight.textContent = 'wrong - Distractions';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E13() {
-    if (episodeGuess.value == 'Skin Deep') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Skin Deep') {
-        wrongOrRight.textContent = 'wrong - Skin Deep';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E14() {
-    if (episodeGuess.value == 'Sex Kills') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Sex Kills') {
-        wrongOrRight.textContent = 'wrong - Sex Kills';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E15() {
-    if (episodeGuess.value == 'Clueless') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Clueless') {
-        wrongOrRight.textContent = 'wrong - Clueless';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E16() {
-    if (episodeGuess.value == 'Safe') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Safe') {
-        wrongOrRight.textContent = 'wrong - Safe';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E17() {
-    if (episodeGuess.value == 'All In') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'All In') {
-        wrongOrRight.textContent = 'wrong - All In';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 17');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E18() {
-    if (episodeGuess.value == 'Sleeping Dogs Lie') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Sleeping Dogs Lie') {
-        wrongOrRight.textContent = 'wrong - Sleeping Dogs Lie';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 18');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E19() {
-    if (episodeGuess.value == 'House vs. God') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'House vs. God') {
-        wrongOrRight.textContent = 'wrong - House vs. God';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 19');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E20() {
-    if (episodeGuess.value == 'Euphoria: part 1') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Euphoria: part 1') {
-        wrongOrRight.textContent = 'wrong - Euphoria: part 1';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 20');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E21() {
-    if (episodeGuess.value == 'Euphoria: part 2') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Euphoria: part 2') {
-        wrongOrRight.textContent = 'wrong - Euphoria: part 2';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 21');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E22() {
-    if (episodeGuess.value == 'Forever') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Forever') {
-        wrongOrRight.textContent = 'wrong - Forever';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 22');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E23() {
-    if (episodeGuess.value == "Who's Your Daddy?") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "Who's Your Daddy?") {
-        wrongOrRight.textContent = "wrong - Who's Your Daddy?";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 23');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S2E24() {
-    if (episodeGuess.value == 'No Reason') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'No Reason') {
-        wrongOrRight.textContent = 'wrong - No Reason';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 2 Episode 24');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E1() {
-    if (episodeGuess.value == 'Meaning') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Meaning') {
-        wrongOrRight.textContent = 'wrong - Meaning';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E2() {
-    if (episodeGuess.value == 'Cane and Able') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Cane and Able') {
-        wrongOrRight.textContent = 'wrong - Cane and Able';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E3() {
-    if (episodeGuess.value == 'Informed Consent') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Informed Consent') {
-        wrongOrRight.textContent = 'wrong - Informed Consent';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E4() {
-    if (episodeGuess.value == 'Lines in the Sand') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Lines in the Sand') {
-        wrongOrRight.textContent = 'wrong - Lines in the Sand';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E5() {
-    if (episodeGuess.value == 'Fools for Love') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Fools for Love') {
-        wrongOrRight.textContent = 'wrong - Fools for Love';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E6() {
-    if (episodeGuess.value == 'Que Sera Sera') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.value == 'Que Será Será') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Que Sera Sera') {
-        wrongOrRight.textContent = 'wrong - Que Sera Sera';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E7() {
-    if (episodeGuess.value == 'Son of Coma Guy') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Son of Coma Guy') {
-        wrongOrRight.textContent = 'wrong - Son of Coma Guy';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E8() {
-    if (episodeGuess.value == 'Whac-A-Mole') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Whac-A-Mole') {
-        wrongOrRight.textContent = 'wrong - Whac-A-Mole';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E9() {
-    if (episodeGuess.value == 'Finding Judas') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Finding Judas') {
-        wrongOrRight.textContent = 'wrong - Finding Judas';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E10() {
-    if (episodeGuess.value == 'Merry Little Christmas') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Merry Little Christmas') {
-        wrongOrRight.textContent = 'wrong - Merry Little Christmas';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E11() {
-    if (episodeGuess.value == 'Words and Deeds') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Words and Deeds') {
-        wrongOrRight.textContent = 'wrong - Words and Deeds';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E12() {
-    if (episodeGuess.value == 'One Day, One Room') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'One Day, One Room') {
-        wrongOrRight.textContent = 'wrong - One Day, One Room';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E13() {
-    if (episodeGuess.value == 'Needle in a Haystack') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Needle in a Haystack') {
-        wrongOrRight.textContent = 'wrong - Needle in a Haystack';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E14() {
-    if (episodeGuess.value == 'Insensitive') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Insensitive') {
-        wrongOrRight.textContent = 'wrong - Insensitive';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E15() {
-    if (episodeGuess.value == 'Half-wit') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Half-wit') {
-        wrongOrRight.textContent = 'wrong - Half-wit';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E16() {
-    if (episodeGuess.value == 'Top Secret') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Top Secret') {
-        wrongOrRight.textContent = 'wrong - Top Secret';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E17() {
-    if (episodeGuess.value == 'Fetal Position') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Fetal Position') {
-        wrongOrRight.textContent = 'wrong - Fetal Position';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 17');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E18() {
-    if (episodeGuess.value == 'Airborne') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Airborne') {
-        wrongOrRight.textContent = 'wrong - Airborne';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 18');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E19() {
-    if (episodeGuess.value == 'Act Your Age') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Act Your Age') {
-        wrongOrRight.textContent = 'wrong - Act Your Age';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 19');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E20() {
-    if (episodeGuess.value == 'House Training') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'House Training') {
-        wrongOrRight.textContent = 'wrong - House Training';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 20');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E21() {
-    if (episodeGuess.value == 'Family') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Family') {
-        wrongOrRight.textContent = 'wrong - Family';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 21');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E22() {
-    if (episodeGuess.value == 'Resignation') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Resignation') {
-        wrongOrRight.textContent = 'wrong - Resignation';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 22');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E23() {
-    if (episodeGuess.value == 'The Jerk') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Jerk') {
-        wrongOrRight.textContent = 'wrong - The Jerk';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 23');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S3E24() {
-    if (episodeGuess.value == 'Human Error') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Human Error') {
-        wrongOrRight.textContent = 'wrong - Human Error';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 3 Episode 24');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E1() {
-    if (episodeGuess.value == 'Alone') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Alone') {
-        wrongOrRight.textContent = 'wrong - Alone';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E2() {
-    if (episodeGuess.value == 'The Right Stuff') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Right Stuff') {
-        wrongOrRight.textContent = 'wrong - The Right Stuff';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E3() {
-    if (episodeGuess.value == '97 Seconds') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== '97 Seconds') {
-        wrongOrRight.textContent = 'wrong - 97 Seconds';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E4() {
-    if (episodeGuess.value == 'Guardian Angels') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Guardian Angels') {
-        wrongOrRight.textContent = 'wrong - Guardian Angels';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E5() {
-    if (episodeGuess.value == 'Mirror Mirror') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Mirror Mirror') {
-        wrongOrRight.textContent = 'wrong - Mirror Mirror';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E6() {
-    if (episodeGuess.value == 'Whatever It Takes') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Whatever It Takes') {
-        wrongOrRight.textContent = 'wrong - Whatever It Takes';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E7() {
-    if (episodeGuess.value == 'Ugly') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Ugly') {
-        wrongOrRight.textContent = 'wrong - Ugly';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E8() {
-    if (episodeGuess.value == "You Don't Want to Know") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "You Don't Want to Know") {
-        wrongOrRight.textContent = "wrong - You Don't Want to Know";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E9() {
-    if (episodeGuess.value == 'Games') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Games') {
-        wrongOrRight.textContent = 'wrong - Games';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E10() {
-    if (episodeGuess.value == "It's a Wonderful Lie") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "It's a Wonderful Lie") {
-        wrongOrRight.textContent = "wrong - It's a Wonderful Lie";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E11() {
-    if (episodeGuess.value == 'Frozen') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Frozen') {
-        wrongOrRight.textContent = 'wrong - Frozen';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E12() {
-    if (episodeGuess.value == "Don't Ever Change") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "Don't Ever Change") {
-        wrongOrRight.textContent = "wrong - Don't Ever Change";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E13() {
-    if (episodeGuess.value == 'No More Mr. Nice Guy') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'No More Mr. Nice Guy') {
-        wrongOrRight.textContent = 'wrong - No More Mr. Nice Guy';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E14() {
-    if (episodeGuess.value == 'Living the Dream') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Living the Dream') {
-        wrongOrRight.textContent = 'wrong - Living the Dream';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E15() {
-    if (episodeGuess.value == "House's Head") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "House's Head") {
-        wrongOrRight.textContent = "wrong - House's Head";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S4E16() {
-    if (episodeGuess.value == "Wilson's Heart") {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== "Wilson's Heart") {
-        wrongOrRight.textContent = "wrong - Wilson's Heart";
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 4 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E1() {
-    if (episodeGuess.value == 'Dying Changes Everything') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Dying Changes Everything') {
-        wrongOrRight.textContent = 'wrong - Dying Changes Everything';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E2() {
-    if (episodeGuess.value == 'Not Cancer') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Not Cancer') {
-        wrongOrRight.textContent = 'wrong - Not Cancer';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E3() {
-    if (episodeGuess.value == 'Adverse Events') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Adverse Events') {
-        wrongOrRight.textContent = 'wrong - Adverse Events';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E4() {
-    if (episodeGuess.value == 'Birthmarks') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Birthmarks') {
-        wrongOrRight.textContent = 'wrong - Birthmarks';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E5() {
-    if (episodeGuess.value == 'Lucky Thirteen') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Lucky Thirteen') {
-        wrongOrRight.textContent = 'wrong - Lucky Thirteen';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E6() {
-    if (episodeGuess.value == 'Joy') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Joy') {
-        wrongOrRight.textContent = 'wrong - Joy';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E7() {
-    if (episodeGuess.value == 'The Itch') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Itch') {
-        wrongOrRight.textContent = 'wrong - The Itch';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E8() {
-    if (episodeGuess.value == 'Emancipation') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Emancipation') {
-        wrongOrRight.textContent = 'wrong - Emancipation';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E9() {
-    if (episodeGuess.value == 'Last Resort') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Last Resort') {
-        wrongOrRight.textContent = 'wrong - Last Resort';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E10() {
-    if (episodeGuess.value == 'Let Them Eat Cake') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Let Them Eat Cake') {
-        wrongOrRight.textContent = 'wrong - Let Them Eat Cake';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E11() {
-    if (episodeGuess.value == 'Joy to the World') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Joy to the World') {
-        wrongOrRight.textContent = 'wrong - Joy to the World';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E12() {
-    if (episodeGuess.value == 'Painless') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Painless') {
-        wrongOrRight.textContent = 'wrong - Painless';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E13() {
-    if (episodeGuess.value == 'Big Baby') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Big Baby') {
-        wrongOrRight.textContent = 'wrong - Big Baby';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E14() {
-    if (episodeGuess.value == 'The Greater Good') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Greater Good') {
-        wrongOrRight.textContent = 'wrong - The Greater Good';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E15() {
-    if (episodeGuess.value == 'Unfaithful') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Unfaithful') {
-        wrongOrRight.textContent = 'wrong - Unfaithful';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E16() {
-    if (episodeGuess.value == 'The Softer Side') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Softer Side') {
-        wrongOrRight.textContent = 'wrong - The Softer Side';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E17() {
-    if (episodeGuess.value == 'The Social Contract') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Social Contract') {
-        wrongOrRight.textContent = 'wrong - The Social Contract';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 17');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E18() {
-    if (episodeGuess.value == 'Here Kitty') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Here Kitty') {
-        wrongOrRight.textContent = 'wrong - Here Kitty';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 18');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E19() {
-    if (episodeGuess.value == 'Locked In') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Locked In') {
-        wrongOrRight.textContent = 'wrong - Locked In';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 19');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E20() {
-    if (episodeGuess.value == 'Simple Explanation') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Simple Explanation') {
-        wrongOrRight.textContent = 'wrong - Simple Explanation';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 20');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E21() {
-    if (episodeGuess.value == 'Saviors') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Saviors') {
-        wrongOrRight.textContent = 'wrong - Saviors';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 21');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E22() {
-    if (episodeGuess.value == 'House Divided') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'House Divided') {
-        wrongOrRight.textContent = 'wrong - House Divided';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 22');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E23() {
-    if (episodeGuess.value == 'Under My Skin') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Under My Skin') {
-        wrongOrRight.textContent = 'wrong - Under My Skin';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 23');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S5E24() {
-    if (episodeGuess.value == 'Both Sides Now') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Both Sides Now') {
-        wrongOrRight.textContent = 'wrong - Both Sides Now';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 5 Episode 24');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E1() {
-    if (episodeGuess.value == 'Broken') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Broken') {
-        wrongOrRight.textContent = 'wrong - Broken';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E2() {
-    if (episodeGuess.value == 'Epic Fail') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Epic Fail') {
-        wrongOrRight.textContent = 'wrong - Epic Fail';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E3() {
-    if (episodeGuess.value == 'The Tyrant') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Tyrant') {
-        wrongOrRight.textContent = 'wrong - The Tyrant';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E4() {
-    if (episodeGuess.value == 'Instant Karma') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Instant Karma') {
-        wrongOrRight.textContent = 'wrong - Instant Karma';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E5() {
-    if (episodeGuess.value == 'Brave Heart') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Brave Heart') {
-        wrongOrRight.textContent = 'wrong - Brave Heart';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E6() {
-    if (episodeGuess.value == 'Known Unknowns') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Known Unknowns') {
-        wrongOrRight.textContent = 'wrong - Known Unknowns';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E7() {
-    if (episodeGuess.value == 'Teamwork') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Teamwork') {
-        wrongOrRight.textContent = 'wrong - Teamwork';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E8() {
-    if (episodeGuess.value == 'Ignorance Is Bliss') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Ignorance Is Bliss') {
-        wrongOrRight.textContent = 'wrong - Ignorance Is Bliss';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E9() {
-    if (episodeGuess.value == 'Wilson') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Wilson') {
-        wrongOrRight.textContent = 'wrong - Wilson';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E10() {
-    if (episodeGuess.value == 'The Down Low') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Down Low') {
-        wrongOrRight.textContent = 'wrong - The Down Low';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E11() {
-    if (episodeGuess.value == 'Remorse') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Remorse') {
-        wrongOrRight.textContent = 'wrong - Remorse';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E12() {
-    if (episodeGuess.value == 'Moving the Chains') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Moving the Chains') {
-        wrongOrRight.textContent = 'wrong - Moving the Chains';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E13() {
-    if (episodeGuess.value == '5 to 9') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== '5 to 9') {
-        wrongOrRight.textContent = 'wrong - 5 to 9';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E14() {
-    if (episodeGuess.value == 'Private Lives') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Private Lives') {
-        wrongOrRight.textContent = 'wrong - Private Lives';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E15() {
-    if (episodeGuess.value == 'Black Hole') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Black Hole') {
-        wrongOrRight.textContent = 'wrong - Black Hole';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E16() {
-    if (episodeGuess.value == 'Lockdown') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Lockdown') {
-        wrongOrRight.textContent = 'wrong - Lockdown';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E17() {
-    if (episodeGuess.value == 'Knight Fall') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Knight Fall') {
-        wrongOrRight.textContent = 'wrong - Knight Fall';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 17');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E18() {
-    if (episodeGuess.value == 'Open and Shut') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Open and Shut') {
-        wrongOrRight.textContent = 'wrong - Open and Shut';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 18');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E19() {
-    if (episodeGuess.value == 'The Choice') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Choice') {
-        wrongOrRight.textContent = 'wrong - The Choice';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 19');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E20() {
-    if (episodeGuess.value == 'Baggage') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Baggage') {
-        wrongOrRight.textContent = 'wrong - Baggage';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 20');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S6E21() {
-    if (episodeGuess.value == 'Help Me') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Help Me') {
-        wrongOrRight.textContent = 'wrong - Help Me';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 6 Episode 21');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E1() {
-    if (episodeGuess.value == 'Now What?') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Now What?') {
-        wrongOrRight.textContent = 'wrong - Now What?';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 1');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E2() {
-    if (episodeGuess.value == 'Selfish') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Selfish') {
-        wrongOrRight.textContent = 'wrong - Selfish';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 2');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E3() {
-    if (episodeGuess.value == 'Unwritten') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Unwritten') {
-        wrongOrRight.textContent = 'wrong - Unwritten';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 3');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E4() {
-    if (episodeGuess.value == 'Massage Therapy') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Massage Therapy') {
-        wrongOrRight.textContent = 'wrong - Massage Therapy';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 4');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E5() {
-    if (episodeGuess.value == 'Unplanned Parenthood') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Unplanned Parenthood') {
-        wrongOrRight.textContent = 'wrong - Unplanned Parenthood';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 5');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E6() {
-    if (episodeGuess.value == 'Office Politics') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Office Politics') {
-        wrongOrRight.textContent = 'wrong - Office Politics';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 6');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E7() {
-    if (episodeGuess.value == 'A Pox on Our House') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'A Pox on Our House') {
-        wrongOrRight.textContent = 'wrong - A Pox on Our House';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 7');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E8() {
-    if (episodeGuess.value == 'Small Sacrifices') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Small Sacrifices') {
-        wrongOrRight.textContent = 'wrong - Small Sacrifices';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 8');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E9() {
-    if (episodeGuess.value == 'Larger than Life') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Larger than Life') {
-        wrongOrRight.textContent = 'wrong - Larger than Life';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 9');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E10() {
-    if (episodeGuess.value == 'Carrot or Stick') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Carrot or Stick') {
-        wrongOrRight.textContent = 'wrong - Carrot or Stick';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 10');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E11() {
-    if (episodeGuess.value == 'Family Practice') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Family Practice') {
-        wrongOrRight.textContent = 'wrong - Family Practice';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 11');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E12() {
-    if (episodeGuess.value == 'You Must Remember This') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'You Must Remember This') {
-        wrongOrRight.textContent = 'wrong - You Must Remeber This';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 12');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E13() {
-    if (episodeGuess.value == 'Two Stories') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Two Stories') {
-        wrongOrRight.textContent = 'wrong - Two Stories';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 13');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E14() {
-    if (episodeGuess.value == 'Recession Proof') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Recession Proof') {
-        wrongOrRight.textContent = 'wrong - Recession Proof';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 14');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E15() {
-    if (episodeGuess.value == 'BombShells') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Bombshells') {
-        wrongOrRight.textContent = 'wrong - BombShells';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 15');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E16() {
-    if (episodeGuess.value == 'Out of the Chute') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Out of the Chute') {
-        wrongOrRight.textContent = 'wrong - Out of the Chute';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 16');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E17() {
-    if (episodeGuess.value == 'Fall from Grace') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Fall from Grace') {
-        wrongOrRight.textContent = 'wrong - Fall from Grace';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 17');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E18() {
-    if (episodeGuess.value == 'The Dig') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Dig') {
-        wrongOrRight.textContent = 'wrong - The Dig';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 18');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E19() {
-    if (episodeGuess.value == 'Last Temptation') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Last Temptation') {
-        wrongOrRight.textContent = 'wrong - Last Temptation';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 19');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E20() {
-    if (episodeGuess.value == 'Changes') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'Changes') {
-        wrongOrRight.textContent = 'wrong - Changes';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 20');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
-}
-function S7E21() {
-    if (episodeGuess.value == 'The Fix') {
-        wrongOrRight.textContent = 'Right';
-        wrongOrRight.style.color = 'green';
-        document.getElementById('housePNG').src = "houseHappy.png";
-        ++totCorrect;
-    } else if (episodeGuess.Value !== 'The Fix') {
-        wrongOrRight.textContent = 'wrong - The Fix';
-        wrongOrRight.style.color = 'red';
-        document.getElementById('housePNG').src = "houseSad.png";
-    }
-    updateStat();
-    if (noRepeatButt == true) {
-        episodePreDelete = episodes.indexOf('Season 7 Episode 21');
-        episodeDelete = episodes.splice(episodePreDelete, 1);
-    }
+        episodeName = 'Now What?';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 1');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 2') {
+        episodeName = 'Selfish';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 2');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 3') {
+        episodeName = 'Unwritten';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 3');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 4') {
+        episodeName = 'Massage Therapy';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 4');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 5') {
+        episodeName = 'Unplanned Parenthood';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 5');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 6') {
+        episodeName = 'Office Politics';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 6');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 7') {
+        episodeName = 'A Pox on Our House';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 7');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 8') {
+        episodeName = 'Small Sacrifices';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 8');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 9') {
+        episodeName = 'Larger than Life';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 9');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 10') {
+        episodeName = 'Carrot or Stick';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 10');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 11') {
+        episodeName = 'Family Practice';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 11');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 12') {
+        episodeName = 'You Must Remember This';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 12');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 13') {
+        episodeName = 'Two Stories';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 13');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 14') {
+        episodeName = 'Recession Proof';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 14');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 15') {
+        episodeName = 'BombShells';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 15');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 16') {
+        episodeName = 'Out of the Chute';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 16');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 17') {
+        episodeName = 'Fall from Grace';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 17');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 18') {
+        episodeName = 'The Dig';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 18');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 19') {
+        episodeName = 'Last Temptation';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 19');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 20') {
+        episodeName = 'Changes';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 20');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    } else if (episodeX == 'Season 7 Episode 21') {
+        episodeName = 'The Fix';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 21');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
+    }
+}
+function correct() {
+    wrongOrRight.textContent = 'Right';
+    wrongOrRight.style.color = 'green';
+    document.getElementById('housePNG').src = "houseHappy.png";
+    ++totCorrect;
+}
+function incorrect() {
+    wrongOrRight.textContent = 'Wrong - ' + episodeName;
+    wrongOrRight.style.color = 'red';
+    document.getElementById('housePNG').src = "houseSad.png";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
