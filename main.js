@@ -109,7 +109,6 @@ function check2() {
 
     if (easyMode == true) {
         episodeGuessEasy = episodeGuess.value.toLowerCase();
-        console.log(episodeGuessEasy);
     }
     if (episodeX == 'Season 1 Episode 1') {
         episodeName = 'Pilot';
