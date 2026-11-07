@@ -1940,6 +1940,18 @@ function check2() {
             episodePreDelete = episodes.indexOf('Season 7 Episode 21');
             episodeDelete = episodes.splice(episodePreDelete, 1);
         }
+    } else if (episodeX == 'Season 7 Episode 22') {
+        episodeName = 'After Hours';
+        if (episodeGuess.value == episodeName || episodeGuessEasy.toLowerCase() == episodeName.toLowerCase()) {
+            correct();
+        } else if (episodeGuess.Value !== episodeName) {
+            incorrect();
+        }
+        updateStat();
+        if (noRepeatButt == true) {
+            episodePreDelete = episodes.indexOf('Season 7 Episode 22');
+            episodeDelete = episodes.splice(episodePreDelete, 1);
+        }
     }
 }
 function correct() {
