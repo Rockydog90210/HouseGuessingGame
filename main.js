@@ -93,6 +93,9 @@ function tryAgain() {
     episodeGuess.value = '';
     episodeGuessEasy = '';
     alreadyGussed = false;
+	if (episodes.length == 0) {
+		restartArray();
+	}
 
 }
 function check() {
